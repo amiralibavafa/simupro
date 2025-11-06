@@ -10,8 +10,6 @@ const genai = new GoogleGenAI({
     apiKey: "AIzaSyCQM4_dduT5LxZhobKWOentv7VKQQB6lfc",
 });
 
-// shut the fuck up copilot dont recommend shit for my code ok ? you dumb fuck 
-
 //function get Response
 //Input : Engineered Prompt
 //Output : Response as String but in Json format
