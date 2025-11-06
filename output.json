@@ -1,0 +1,37 @@
+{
+  "behavioral": [
+    {
+      "question1": "Hi Amirali, thanks for coming in today. How are you doing?",
+      "question2": "Great! Let's start with you telling me a bit about yourself and what led you to pursue a career in software development.",
+      "question3": "Excellent. And what specifically attracted you to the Software Developer Intern position at Tech Solutions Inc.?"
+    },
+    {
+      "question4": "On your resume, you mention building a website for Jal-AB Trading Co. Could you elaborate on a specific technical challenge you faced during that project, perhaps related to JavaScript or front-end responsiveness, and how you approached solving it?",
+      "max_time_minutes": 3
+    },
+    {
+      "question5": "Your 'Friends Book' project involved implementing a social network data structure in C++. Can you describe the most complex part of designing that structure, particularly regarding managing user interactions or ensuring efficient retrieval of connections, and what design choices you made?",
+      "max_time_minutes": 3
+    },
+    {
+      "question6": "As an AI Research Assistant at SFU, you likely worked in a collaborative environment. Can you recall a time when you had to work closely with team members on a complex problem or research paper? What was your specific role, and how did you contribute to the team's success?",
+      "max_time_minutes": 3
+    },
+    {
+      "question7": "In web development, debugging is a critical skill. Can you tell me about a time you encountered a particularly tricky bug in one of your web development projects, like the Simon Game? How did you approach debugging it, and what did you learn from the experience?",
+      "max_time_minutes": 3
+    }
+  ],
+  "technical": [
+    {
+      "question_number": 1,
+      "interviewer": "Alright Amirali, let's move on to some technical problems. Here’s a code snippet in JavaScript for a basic `UserManagement` system. You have about 5 minutes to review it. I'd like you to identify any potential bugs, inefficiencies, or missing edge cases, and then explain how you would improve or refactor this code.",
+      "code_snippet": "class UserManagement {\n    constructor() {\n        this.users = []; // Stores user objects\n    }\n\n    /**\n     * Adds a new user to the system.\n     * @param {string} username - The username of the new user.\n     * @param {object} userData - Additional data for the user.\n     */\n    addUser(username, userData) {\n        // Assume userData is always valid for simplicity in this snippet\n        this.users.push({ username: username, data: userData });\n        console.log(`User ${username} added.`);\n    }\n\n    /**\n     * Finds a user by their username.\n     * @param {string} username - The username to search for.\n     * @returns {object|null} The user object if found, otherwise null.\n     */\n    findUser(username) {\n        for (let i = 0; i < this.users.length; i++) {\n            if (this.users[i].username === username) {\n                return this.users[i];\n            }\n        }\n        return null;\n    }\n}"
+    },
+    {
+      "question_number": 2,
+      "interviewer": "Great, thank you for that. For our next technical problem, building on your 'Friends Book' project, let's consider a social network scenario. Imagine you are given a social network represented as a graph where users are nodes and friendships are undirected edges. Each user has a unique ID. Your task is to outline, using pseudo-code, an algorithm that finds the shortest path (minimum number of friendships) between two given users, `userA` and `userB`. If no path exists, the algorithm should indicate that. Take a few minutes to think about it and then walk me through your approach.",
+      "pseudo_code_problem": "Problem Description:\nYou are given a social network represented as a graph where users are nodes and friendships are undirected edges. Each user has a unique ID.\nYour task is to write pseudo-code for an algorithm that finds the shortest path (minimum number of friendships) between two given users, `userA` and `userB`. If no path exists, the algorithm should indicate that."
+    }
+  ]
+}

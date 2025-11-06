@@ -1,0 +1,15 @@
+{
+  "name": "simupro",
+  "version": "1.0.0",
+  "description": "Interview Prep AI",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Amirali Bavafa",
+  "license": "MIT",
+  "dependencies": {
+    "@google/genai": "^1.29.0"
+  }
+}
