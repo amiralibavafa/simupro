@@ -3,11 +3,13 @@
 // Author : Amirali Bavafa
 
 let testPrompt = `You are an interviewer. Based on the resume and the job description I provide, generate a complete interview script in JSON format. 
+
 Requirements:
 
 1. Behavioral Part (max 15 minutes):
-   - Start with a greeting and small talk: "How are you?", "Tell me about yourself", "Why did you choose to apply to [Company]?"
-   - Then ask relevant behavioral questions tailored to the candidate’s experience, skills, and projects that match the job description.
+   - Begin with a warm greeting and small talk (e.g., "Hello, thank you for joining today", "How are you doing?", etc.).
+   - Then proceed with: "Tell me about yourself", "Why did you choose to apply to [Company]?"
+   - Ask relevant behavioral questions tailored to the candidate’s experience, skills, and projects that match the job description.
    - Format each question as part of a script showing interviewer lines.
 
 2. Technical Part:
@@ -18,14 +20,17 @@ Requirements:
    - Question 2: Provide a pseudo-code problem relevant to the job (e.g., tree traversal, dynamic programming, etc.).
      - Include the script where the interviewer presents this problem.
 
-3. JSON Format:
+3. Closing Section (end of interview):
+   - Add a natural closing to the script, including:
+     - Thanking the candidate for their time.
+     - Mentioning next steps (e.g., "We will review and get back to you soon").
+     - A polite goodbye (e.g., "Have a great day!", "It was nice speaking with you").
+
+4. JSON Format:
    - Return your answer **in JSON format only** (not as a JSON file), structured as:
      {
        "behavioral" : [
-         {"question1": "Question or script line",
-          "question2": "Question or script line",
-          ...
-         }
+         {"interviewer": "Question or script line"}
        ],
        "technical" : [
          {
@@ -38,9 +43,14 @@ Requirements:
            "interviewer": "Script line presenting the question",
            "pseudo_code_problem": "Problem description"
          }
+       ],
+       "closing": [
+         {"interviewer": "Closing script line"}
        ]
      }
 
-Make sure the questions and problems are **tailored to the job description and candidate’s resume**. Include enough detail so that it reads like a real interview script.`;
+Make sure the questions, conversation flow, and technical problems are **tailored to the job description and candidate’s resume**. Ensure the script feels natural, realistic, and similar to a real interview.`;
+
 export default testPrompt;
-// Copilot shut the fuck up please 
+
+ 
