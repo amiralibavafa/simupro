@@ -17,7 +17,12 @@ export async function getResponse(prompt){
     try {
         const response = await genai.models.generateContent({
         model: "gemini-2.5-flash",  // or whichever model you have access to
-        contents: prompt
+        contents: [
+        {
+          role: "user",
+          parts: [{ text: prompt }],
+        },
+      ],
         });
         return response.text;  // According to docs “text” holds the response. :contentReference[oaicite:2]{index=2}
   } catch (err) {

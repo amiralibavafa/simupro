@@ -1,0 +1,51 @@
+{
+  "behavioral": [
+    {
+      "interviewer": "Hello Amirali, thank you for joining us today. How are you doing?"
+    },
+    {
+      "interviewer": "Great to hear! Let's start with getting to know you a bit better. Could you please tell me about yourself and what brought you to apply for the Software Developer Intern position at Tech Solutions Inc.?"
+    },
+    {
+      "interviewer": "That's a fantastic alignment with our focus here. Your resume highlights extensive experience in web development, particularly with React, Express, and Node.js at Nexuswave Inc. Can you walk me through a challenging technical problem you encountered while developing a web application there and how you approached solving it?"
+    },
+    {
+      "interviewer": "It sounds like you have a strong focus on robust development. You also mentioned implementing unit and integration tests using Jest, achieving 90% code coverage. In your opinion, what is the most critical aspect of testing in an Agile development environment, and how do you ensure code quality when collaborating within a team?"
+    },
+    {
+      "interviewer": "Your 'Emral' project involved designing modular backend services following microservices principles and leveraging AWS EC2 for deployment. What were some of the key architectural decisions you made to ensure scalability and maintainability for this project, and what challenges did you face when integrating with AWS?"
+    },
+    {
+      "interviewer": "Moving to your research experience, you constructed machine learning models and implemented search algorithms like UCS and BFS. How do you see your experience with efficient algorithms and data structures applying to the web application backend systems we build, even outside of a purely AI context?"
+    },
+    {
+      "interviewer": "Finally, you've continuously learned new technologies like Next.js, Node.js, and AWS Lambda. Can you describe a time when you had to quickly pick up a completely new technology or framework for a project, and what was your process for mastering it sufficiently to contribute effectively?"
+    }
+  ],
+  "technical": [
+    {
+      "question_number": 1,
+      "interviewer": "Alright, let's move on to the technical section. Here’s a coding problem for you. You have 5 minutes to review the provided JavaScript code snippet and identify any bugs, mistakes, or missing edge cases. Then, explain how you would fix them, with a focus on correctness and efficiency.",
+      "code_snippet": "```javascript\n// Function to remove duplicate strings from an array\nfunction removeDuplicates(arr) {\n  if (!arr || arr.length === 0) {\n    return [];\n  }\n\n  const seen = {};\n  const result = [];\n\n  for (let i = 0; i < arr.length; i++) {\n    const item = arr[i];\n    if (seen[item] === undefined) { // Bug: case-sensitive check\n      seen[item] = true;\n      result.push(item);\n    }\n  }\n  return result;\n}\n\n// Example usage:\n// console.log(removeDuplicates([\"apple\", \"Apple\", \"banana\", \"apple\"])); // Expected: [\"apple\", \"banana\"]\n// console.log(removeDuplicates([\"foo\", \"bar\", \"Foo\"]));\n// console.log(removeDuplicates([]));\n// console.log(removeDuplicates(null));\n```"
+    },
+    {
+      "question_number": 2,
+      "interviewer": "Excellent. Now, for our second technical question, I'd like you to think about algorithms. Given a `Tree` data structure where each node has a value (an integer) and a list of children (it's an N-ary tree, not necessarily binary), write pseudo-code to find the maximum value present in the entire tree. Assume the tree is not empty. Please walk me through your thought process and the pseudo-code you would write.",
+      "pseudo_code_problem": "Problem: Given an N-ary Tree data structure (where each node has an integer value and a list of child nodes), write pseudo-code to find the maximum integer value present in the entire tree. Assume the tree is not empty."
+    }
+  ],
+  "closing": [
+    {
+      "interviewer": "Thank you, Amirali, for walking us through your solutions and insights. That concludes the formal part of our interview."
+    },
+    {
+      "interviewer": "Do you have any questions for me about the role, the team, or Tech Solutions Inc.?"
+    },
+    {
+      "interviewer": "Great questions! It was a pleasure speaking with you today. We will review all applications and get back to you regarding the next steps in our process soon. You can expect to hear from us within a week or two."
+    },
+    {
+      "interviewer": "Thanks again for your time, Amirali. Have a great day!"
+    }
+  ]
+}
