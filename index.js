@@ -7,12 +7,13 @@ import testPrompt from "./LLMcore/test-prompt.js";
 import { JobDescription, resume } from "./LLMcore/sample_input.js"; //TEST
 import fs from "fs";
 import resumeReader from "./inputs/resume-parser.js";
+import generateAIVoice from "./LLMcore/voice.js";
 
 // function prepare the prompt by adding job description and resume
 // Input : job description string , resume string
 // Output : engineered prompt string
 // IMPORTANT : This is the 1st phase to test the LLM response
-async function preparePrompt(jobDescription, resumePath){
+async function preparePrompt(jobDescription){
     let prompt = testPrompt;
     prompt += '\nJob Description: \n' + jobDescription;// This is the test will be changed IMPORTANT!
 
@@ -26,7 +27,7 @@ async function preparePrompt(jobDescription, resumePath){
 // Main function to execute the prompt preparation and get response
 // from the LLM core module.
 async function main() {
-  const prompt = await preparePrompt(JobDescription, resume);
+  const prompt = await preparePrompt(JobDescription);
   console.log("Prompt:", prompt);
   console.log("----------------------------------------------------------------------------");
 
@@ -43,6 +44,8 @@ async function main() {
   } catch (err) {
     console.log("Failed to get response:", err);
   }
+
+  await generateAIVoice(); // Generating AI voice
 }
 
 main();

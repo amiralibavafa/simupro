@@ -1,29 +1,47 @@
-//voice.js
-//Goal : this method uses the interview script to generate mp3 files for the AI interviewer so they will be played in the back ground like a humanbeing talking
-//Inputs : 
-//Outputs :
-//Author : Amirali Bavafa
+// voice.js
+// Goal: generate local AI voice for each question in the interview script
+// Inputs: path to the generated LLM script
+// Outputs: saves a WAV file for each question
+// Author: Amirali Bavafa
 
-
-// THIS IS A TEST FUNCTION FOR NOW TO SEE IF THE API WORKS 
 import fs from 'fs';
-import fetch from 'node-fetch';
+import say from 'say';
 
-const apiKey = 'sk_d48285ada8e06717085f9812beb1980ac3e571f7549f2bb1';
-const text = "Hello Amirali, thank you for joining us today. How are you doing?";
+// Function generate AI Voice
+// Input: path of the latest generated LLM script
+// Outputs: generates WAV file for each behavioral question
+async function generateAIVoice(path = "./output/output.json") {
+  // Load LLM script
+  const raw = fs.readFileSync(path, "utf-8");
+  const data = JSON.parse(raw);
 
-const response = await fetch('https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM', {
-  method: 'POST',
-  headers: {
-    'xi-api-key': apiKey,
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    text,
-    voice_settings: { stability: 0.75, similarity_boost: 0.75 }
-  })
-});
+  // Ensure output directory exists
+  if (!fs.existsSync("./output")) {
+    fs.mkdirSync("./output");
+  }
 
-const buffer = Buffer.from(await response.arrayBuffer());
-fs.writeFileSync('./output/hello_amirali.mp3', buffer);
-console.log('✅ MP3 saved!');
+  // Loop through behavioral questions
+  for (let i = 0; i < data.behavioral.length; i++) {
+    const item = data.behavioral[i];
+    const text = item.interviewer;
+
+    console.log(`Generating voice for question ${i + 1}...`);
+
+    // Wrap say.export in a Promise so we can await it
+    await new Promise((resolve, reject) => {
+      say.export(text, null, 1.0, `./output/behavioral_${i + 1}.wav`, (err) => {
+        if (err) {
+          console.error(`Error generating voice for question ${i + 1}:`, err);
+          reject(err);
+        } else {
+          console.log(`Generated: behavioral_${i + 1}.wav`);
+          resolve();
+        }
+      });
+    });
+  }
+
+  console.log("All behavioral questions processed.");
+}
+
+export default generateAIVoice;
