@@ -1,0 +1,9 @@
+.startBox{
+    width: 40%;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #5C3E94;
+}
