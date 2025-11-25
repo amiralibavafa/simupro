@@ -1,15 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
-import StartButton from './components/startButton/startButton.jsx'
+import { useEffect } from 'react';
+import MockInterview from './components/mockInterview/mockInterview';
 
 function App() {
+  useEffect(() => {
+    document.title = "Virtual Interview - SimuPro"
+  }, []);
+
+  
   return (
     <div className="App">
       <div className='header'>
 
       </div>
       <div className='virtualSpace'>
-        <StartButton/>
+        <MockInterview/>
       </div> 
     </div>
   );
