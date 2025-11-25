@@ -23,12 +23,12 @@ p{
 
 .button{
     width: 30%;
-    height: 10vh;
+    height: 8vh;
     font-size: large;
     border-radius: 50px;
     font-size: 24px;
     border: 0;
-    background-color: #4A70A9;
+    background-color: #384B70;
     color: whitesmoke;
 }
 
