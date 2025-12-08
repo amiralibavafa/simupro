@@ -4,42 +4,47 @@
       "interviewer": "Hello Amirali, thank you for joining us today. How are you doing?"
     },
     {
-      "interviewer": "Great to hear! To start, could you please tell me a little bit about yourself and your journey in software development?"
+      "interviewer": "Great to hear! Let's dive right in. Could you please start by telling me a bit about yourself and your journey in computer science so far?"
     },
     {
-      "interviewer": "That's a fantastic overview of your experience. Now, diving a bit deeper, why did you choose to apply for the Software Developer Intern position at VanTech Solutions Inc. specifically?"
+      "interviewer": "That's a fantastic overview. You've clearly gained valuable experience. What specifically attracted you to Electronic Arts and this Web Development Internship opportunity?"
     },
     {
-      "interviewer": "You've highlighted significant experience working in Agile teams at both Nexuswave Inc. and Simon Fraser University. Can you describe a time when you faced a significant challenge collaborating with your team on a feature or project, and how you contributed to resolving it?"
+      "interviewer": "Your Full-Stack Developer Intern role at Nexuswave Inc. sounds highly relevant to what we do here. Could you walk me through a specific feature or project you were particularly proud of developing there, especially one that involved React, Node.js, and PostgreSQL? What were the main challenges and how did you overcome them?"
     },
     {
-      "interviewer": "Your resume mentions implementing unit and integration tests with Jest, achieving 90% code coverage at Nexuswave, and 95% with JUnit on your Racoon Invasion project. How do you approach ensuring the quality and reliability of your code, especially when working on web applications?"
+      "interviewer": "I see you also implemented unit and integration tests using Jest, achieving 90% code coverage. Can you describe a situation where thorough testing, perhaps through a specific test you wrote, helped prevent a significant bug from reaching production?"
     },
     {
-      "interviewer": "At Nexuswave, you continuously learned new technologies like Next.js and AWS Lambda. Can you tell me about a time you had to quickly learn a new technology or framework to complete a project or solve a problem? What was your approach to learning it effectively?"
+      "interviewer": "The job description emphasizes contributing to a component library and understanding design systems. Based on your experience with React and Next.js, how do you approach building reusable UI components, and what considerations do you take into account for their maintainability and scalability?"
     },
     {
-      "interviewer": "The job description emphasizes designing and developing web applications using modern JavaScript frameworks. Looking at your Emral project, where you engineered a contest management web app with Node.js, React, and PostgreSQL, what was the most complex technical challenge you encountered during its development, and how did you overcome it?"
+      "interviewer": "Your resume mentions active participation in Agile ceremonies. Can you share an experience where you had to adapt quickly to changing requirements during a sprint, and how you contributed to a positive outcome within your team?"
+    },
+    {
+      "interviewer": "Finally, the internship involves learning new technologies like Next.js and potentially different backend frameworks. Given your proven ability to learn new technologies like Next.js and AWS Lambda during your previous internship, how do you typically approach learning a new framework or tool effectively?"
     }
   ],
   "technical": [
     {
       "question_number": 1,
-      "interviewer": "Alright Amirali, let's move on to a coding problem. Here’s a code snippet in JavaScript. You have 5 minutes to review it, identify any potential bugs, inefficiencies, or missing edge cases, and then explain how you would improve it. Please think out loud as you analyze it.",
-      "code_snippet": "function processUserRecords(users) {\n    let activeUsers = [];\n    for (let i = 0; i < users.length; i++) {\n        if (users[i].status === 'active') {\n            activeUsers.push(users[i]);\n        }\n    }\n\n    // Sort by name (alphabetically)\n    for (let i = 0; i < activeUsers.length; i++) {\n        for (let j = i + 1; j < activeUsers.length; j++) {\n            if (activeUsers[i].name > activeUsers[j].name) {\n                let temp = activeUsers[i];\n                activeUsers[i] = activeUsers[j];\n                activeUsers[j] = temp;\n            }\n        }\n    }\n    return activeUsers;\n}\n\n// Example Usage:\n// const userList = [\n//     { id: 1, name: 'Alice', status: 'active' },\n//     { id: 2, name: 'Bob', status: 'inactive' },\n//     { id: 3, name: 'Charlie', status: 'active' },\n//     { id: 4, name: 'David', status: 'active' }\n// ];\n// console.log(processUserRecords(userList));"
+      "interviewer": "Alright Amirali, let's move on to a coding challenge. Here’s a problem for you, you have about 5 minutes to review this React TypeScript component. Your task is to identify any bugs, mistakes, or missing edge cases, and then suggest improvements to make it more robust. Please think out loud as you analyze it.",
+      "code_snippet": "import React, { useState, useEffect } from 'react';\n\ninterface User {\n  id: number;\n  name: string;\n  email: string;\n}\n\ninterface UserProfileProps {\n  userId: number;\n}\n\nconst UserProfile: React.FC<UserProfileProps> = ({ userId }) => {\n  const [user, setUser] = useState<User | null>(null);\n\n  useEffect(() => {\n    fetch(`https://api.example.com/users/${userId}`)\n      .then(response => response.json())\n      .then(data => setUser(data));\n  }, [userId]);\n\n  if (!user) {\n    return <p>Loading user profile...</p>;\n  }\n\n  return (\n    <div>\n      <h2>User Profile</h2>\n      <p>Name: {user.name}</p>\n      <p>Email: {user.email}</p>\n    </div>\n  );\n};\n\nexport default UserProfile;"
     },
     {
       "question_number": 2,
-      "interviewer": "Excellent analysis. For our next technical question, we'll consider a common scenario in backend systems. Imagine you are working on a social media application. You need to develop a feature that, given a user's ID, finds all other users that they follow, and then all users that those users follow, up to a certain depth (e.g., 2 degrees of separation). How would you design a function in pseudo-code to achieve this? You can assume a function `getFollowedUsers(userId)` exists, which returns a list of user IDs that `userId` follows. Think about efficiency and avoiding redundant lookups.",
-      "pseudo_code_problem": "Write pseudo-code for a function `findAllReachableFollowers(startUserId, maxDepth)` that takes a starting user ID and a maximum depth, and returns a unique set of all user IDs reachable by following relationships up to `maxDepth` degrees of separation.\n\nAssumptions:\n- `getFollowedUsers(userId)`: A function that returns a list of user IDs that `userId` directly follows.\n- User IDs are unique integers."
+      "interviewer": "Excellent analysis. For the next technical problem, we'll shift gears a bit. The job description mentions gaining exposure to caching and performance optimization. Can you describe, in pseudo-code, how you would design and implement a 'Least Recently Used' (LRU) Cache? Your solution should support `get(key)` and `put(key, value)` operations, both with O(1) time complexity. Explain the data structures you would use and why."
     }
   ],
   "closing": [
     {
-      "interviewer": "Thank you, Amirali. We've covered a lot of ground today. Do you have any questions for me about VanTech Solutions Inc., the Software Developer Intern role, or the team?"
+      "interviewer": "Amirali, that brings us to the end of our scheduled time today. Thank you very much for your time and for sharing your experiences and insights with us. We'll be reviewing all candidate applications and will get back to you soon regarding the next steps in the process."
     },
     {
-      "interviewer": "Great questions. It was a pleasure speaking with you today. We will be reviewing all the candidates and will get back to you regarding the next steps in the hiring process soon. Have a wonderful day!"
+      "interviewer": "Do you have any final questions for me?"
+    },
+    {
+      "interviewer": "Thank you again. It was great speaking with you. Have a wonderful day!"
     }
   ]
 }

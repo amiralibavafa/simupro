@@ -8,6 +8,10 @@ import fs from "fs";
 import resumeReader from "./inputs/resume-parser.js";
 import generateAIVoice from "./LLMcore/voice.js";
 
+// Declare variables in outer scope
+let parsedScript = null;
+let audioFiles = [];
+
 
 // Function to prepare the essentials of a new mock Interview
 // Inputs : Resume Path (SQL or local), String of JobDescription (Body Parsed from UI)
@@ -34,12 +38,13 @@ async function generateNewMock(resumePath, JobDescription){
   // from the LLM core module.
   async function generate() {
     const prompt = await preparePrompt();
+    let cleanResponse = null;
 
     try {
       const rawResponse = await getResponse(prompt);
 
       // Clean ```json at start and ``` at end if present
-      const cleanResponse = rawResponse
+      cleanResponse = rawResponse
         .replace(/^```json\s*/, "")
         .replace(/```$/, "");
         
@@ -50,8 +55,10 @@ async function generateNewMock(resumePath, JobDescription){
     }
 
     let path = "./AI/output/output.json"; //local path of output.json (SQL in future)
-    await generateAIVoice(path); // Generating AI voice
+    audioFiles = await generateAIVoice(path); // Generating AI voice
+    parsedScript = JSON.parse(cleanResponse); // parsed clean response for api return
   }
   await generate();
+  return { parsedScript, audioFiles }; 
 }
 export default generateNewMock;

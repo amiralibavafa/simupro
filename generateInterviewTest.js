@@ -15,5 +15,10 @@ Requirements:
 
 let resumePath = "./AI/inputs/resume.pdf";
 
-console.log("Generating Interview script and AI voice...");
-generateNewMock(resumePath, JobDescription);
+async function runTest() {
+  console.log("Generating Interview script and AI voice...");
+  const result = await generateNewMock(resumePath, JobDescription);
+  console.log("\n\n", result);
+}
+
+runTest();
