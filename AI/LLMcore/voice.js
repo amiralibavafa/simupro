@@ -18,10 +18,15 @@ async function generateAIVoice(path) {
   const raw = fs.readFileSync(path, "utf-8");
   const data = JSON.parse(raw);
 
+  // Prepare array to store audio file names
+  const audioFiles = []; 
+
   // Loop through behavioral questions
   for (let i = 0; i < data.behavioral.length; i++) {
     const item = data.behavioral[i];
     const text = item.interviewer;
+    var fileName = `behavioral_${i + 1}.wav`;
+    audioFiles.push(fileName);
 
     console.log(`Generating voice for question ${i + 1}...`);
 
@@ -40,6 +45,7 @@ async function generateAIVoice(path) {
   }
 
   console.log("All behavioral questions processed.");
+  return audioFiles;
 }
 
 export default generateAIVoice;

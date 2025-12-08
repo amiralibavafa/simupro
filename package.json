@@ -12,7 +12,12 @@
   "dependencies": {
     "@google/genai": "^1.29.0",
     "@yoing/pdf.js-extract": "^0.1.5",
+    "body-parser": "^2.2.1",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.10",
+    "express": "^5.2.1",
     "hume": "^0.15.6",
+    "multer": "^2.0.2",
     "pdf-text-extract": "^1.5.0",
     "pdfreader": "^3.0.8",
     "say": "^0.16.0"

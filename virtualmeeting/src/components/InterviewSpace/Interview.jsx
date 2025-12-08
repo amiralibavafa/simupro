@@ -1,5 +1,14 @@
+import './interview.css';
+
 function Interview(){
-    return(<div></div>)
+    return(<div className="mainArea">
+        <div className='interviewerBox'>
+
+        </div>
+        <div className='intervieweeBox'>
+
+        </div>
+    </div>)
 }
 
 export default Interview;
