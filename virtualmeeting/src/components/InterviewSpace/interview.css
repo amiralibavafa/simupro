@@ -7,23 +7,94 @@
 }
 
 .interviewerBox{
-    width: 45%;
-    height: 100%;
-    background-color: whitesmoke;
-    border-radius: 20px;
-    box-shadow:
-      0px 3px 6px rgba(0, 0, 0, 0.10),
-      0px 10px 20px rgba(0, 0, 0, 0.06);
-    transition: all 0.3s ease;
+  width: 45%;
+  height: 100%;
+  background-color: #ffffff;
+  border-radius: 24px;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.08),
+    0 2px 6px rgba(0, 0, 0, 0.04);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
 }
 
-.intervieweeBox{
-    width: 45%;
-    height: 100%;
-    background-color: whitesmoke;
-    border-radius: 20px;
-    box-shadow:
-      0px 3px 6px rgba(0, 0, 0, 0.10),
-      0px 10px 20px rgba(0, 0, 0, 0.06);
-    transition: all 0.3s ease;
+.interviewerBox p{
+    font-size: 24px;
+    color: #384B70;
 }
+
+.intervieweeBox {
+  width: 45%;
+  height: 100%;
+  background-color: #ffffff;
+  border-radius: 24px;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.08),
+    0 2px 6px rgba(0, 0, 0, 0.04);
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+/* Textarea */
+.intervieweeTextarea {
+  width: 90%;
+  height: 100%;
+  resize: none;
+  border-radius: 18px;
+  border: 1px solid #e5e5e7;
+  padding: 18px 20px;
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #1d1d1f;
+  background-color: #fafafa;
+  outline: none;
+  line-height: 1.6;
+  transition: all 0.25s ease;
+}
+
+/* Placeholder */
+.intervieweeTextarea::placeholder {
+  color: #9a9aa0;
+}
+
+/* Focus state (very Apple) */
+.intervieweeTextarea:focus {
+  background-color: #ffffff;
+  border-color: #384B70;
+  box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.15);
+}
+
+/* Button */
+.intervieweeDoneBtn {
+  margin-top: 18px;
+  align-self: flex-end;
+  padding: 10px 22px;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background-color: #384B70;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+/* Button hover */
+.intervieweeDoneBtn:hover {
+  box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.15);
+  background-color: #2f3f60;
+}
+
+/* Button active */
+.intervieweeDoneBtn:active {
+  transform: scale(0.97);
+}
+

@@ -21,6 +21,8 @@ app.use(cors({ origin: "http://localhost:3001", credentials: true })); // allow 
 app.use(express.json());          // For JSON body parsing
 app.use(express.static(path.join(__dirname, "public"))); // Serve CSS/Images/JS
 app.use(express.urlencoded({ extended: true })); 
+// Serve audio files statically
+app.use('/audio', express.static(path.join(__dirname, 'AI/output')));
 
 // Set EJS as the view engine
 app.set("view engine", "ejs");
@@ -62,7 +64,7 @@ app.post("/submit", upload.single("resume"), (req, res) => {
     try {
       const mock = await generateNewMock(resumePath, jobDescription);
 
-      console.log("Mock generated:", mock);
+      //console.log("Mock generated:", mock);
 
       // Delete resume after processing
       fs.unlink(resumePath, (err) => {
@@ -70,6 +72,8 @@ app.post("/submit", upload.single("resume"), (req, res) => {
       });
 
       latestMock = mock;
+
+      console.log(latestMock);
 
     } catch (err) {
       console.error("Error during mock generation:", err);
@@ -81,7 +85,7 @@ app.post("/submit", upload.single("resume"), (req, res) => {
 app.get("/mock/status", (req, res) => {
   if (latestMock) {
     res.json({ ready: true, data: latestMock });
-    latestMock = null; // optional: one-time fetch
+    //latestMock = null; // optional: one-time fetch
   } else {
     res.json({ ready: false });
   }
