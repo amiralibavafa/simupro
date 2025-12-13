@@ -4,47 +4,48 @@
       "interviewer": "Hello Amirali, thank you for joining us today. How are you doing?"
     },
     {
-      "interviewer": "Great to hear! Let's dive right in. Could you please start by telling me a bit about yourself and your journey in computer science so far?"
+      "interviewer": "Great to hear! To start, could you please tell me a bit about yourself and your journey in software development?"
     },
     {
-      "interviewer": "That's a fantastic overview. You've clearly gained valuable experience. What specifically attracted you to Electronic Arts and this Web Development Internship opportunity?"
+      "interviewer": "That's a fantastic overview. Moving on, VanTech Solutions Inc. is excited about modern web technologies and collaborative problem-solving. Could you share what specifically attracted you to apply for the Software Developer Intern position here?"
     },
     {
-      "interviewer": "Your Full-Stack Developer Intern role at Nexuswave Inc. sounds highly relevant to what we do here. Could you walk me through a specific feature or project you were particularly proud of developing there, especially one that involved React, Node.js, and PostgreSQL? What were the main challenges and how did you overcome them?"
+      "interviewer": "Your resume mentions collaborating in Agile teams at Nexuswave Inc. and SFU. Could you describe a time when you had to work closely with a team member or a cross-functional team to overcome a significant challenge or deliver a feature? What was your role and what was the outcome?"
     },
     {
-      "interviewer": "I see you also implemented unit and integration tests using Jest, achieving 90% code coverage. Can you describe a situation where thorough testing, perhaps through a specific test you wrote, helped prevent a significant bug from reaching production?"
+      "interviewer": "At SFU, you diagnosed and resolved data inconsistencies and algorithmic inefficiencies. Can you tell me about a particularly challenging technical problem you've encountered in a project or work experience, and how you approached solving it? What was your thought process, and what did you learn?"
     },
     {
-      "interviewer": "The job description emphasizes contributing to a component library and understanding design systems. Based on your experience with React and Next.js, how do you approach building reusable UI components, and what considerations do you take into account for their maintainability and scalability?"
+      "interviewer": "The job description emphasizes modern JavaScript frameworks. At Nexuswave, you continuously learned new technologies including Next.js and AWS. Can you describe a situation where you had to quickly learn a new technology or framework to complete a project or task? How did you approach the learning curve, and what was the result?"
     },
     {
-      "interviewer": "Your resume mentions active participation in Agile ceremonies. Can you share an experience where you had to adapt quickly to changing requirements during a sprint, and how you contributed to a positive outcome within your team?"
-    },
-    {
-      "interviewer": "Finally, the internship involves learning new technologies like Next.js and potentially different backend frameworks. Given your proven ability to learn new technologies like Next.js and AWS Lambda during your previous internship, how do you typically approach learning a new framework or tool effectively?"
+      "interviewer": "In software development, managing project scope and deadlines can be crucial. Can you tell me about a time when a project you were working on faced unexpected obstacles or scope changes? How did you manage it, and what was the outcome?"
     }
   ],
   "technical": [
     {
       "question_number": 1,
-      "interviewer": "Alright Amirali, let's move on to a coding challenge. Here’s a problem for you, you have about 5 minutes to review this React TypeScript component. Your task is to identify any bugs, mistakes, or missing edge cases, and then suggest improvements to make it more robust. Please think out loud as you analyze it.",
-      "code_snippet": "import React, { useState, useEffect } from 'react';\n\ninterface User {\n  id: number;\n  name: string;\n  email: string;\n}\n\ninterface UserProfileProps {\n  userId: number;\n}\n\nconst UserProfile: React.FC<UserProfileProps> = ({ userId }) => {\n  const [user, setUser] = useState<User | null>(null);\n\n  useEffect(() => {\n    fetch(`https://api.example.com/users/${userId}`)\n      .then(response => response.json())\n      .then(data => setUser(data));\n  }, [userId]);\n\n  if (!user) {\n    return <p>Loading user profile...</p>;\n  }\n\n  return (\n    <div>\n      <h2>User Profile</h2>\n      <p>Name: {user.name}</p>\n      <p>Email: {user.email}</p>\n    </div>\n  );\n};\n\nexport default UserProfile;"
+      "interviewer": "Alright Amirali, let's move on to a coding challenge. Here’s a problem for you, you have about 5 minutes to identify and describe any bugs or potential issues in the provided JavaScript code, and then explain how you would fix them. Don't worry about writing out the full corrected code, just walk me through your thought process and proposed changes.",
+      "code_snippet": "function isPalindrome(str) {\n    str = str.toLowerCase(); // Convert to lowercase\n    let reversedStr = str.split('').reverse().join('');\n    if (str === reversedStr) {\n        return true;\n    } else {\n        return false;\n    }\n}\n\n// Example usage (not part of the problem, just for context):\n// console.log(isPalindrome(\"Racecar\")); // Expected: true\n// console.log(isPalindrome(\"hello\"));   // Expected: false\n// console.log(isPalindrome(\"A man, a plan, a canal: Panama\")); // Expected: true (current code outputs false)\n// console.log(isPalindrome(\"No 'x' in Nixon\")); // Expected: true (current code outputs false)"
     },
     {
       "question_number": 2,
-      "interviewer": "Excellent analysis. For the next technical problem, we'll shift gears a bit. The job description mentions gaining exposure to caching and performance optimization. Can you describe, in pseudo-code, how you would design and implement a 'Least Recently Used' (LRU) Cache? Your solution should support `get(key)` and `put(key, value)` operations, both with O(1) time complexity. Explain the data structures you would use and why."
+      "interviewer": "Excellent, thank you for that. For our next technical question, let's shift gears slightly. Given your experience with algorithms and data structures, imagine you are building a feature for a delivery service web application. You need to calculate the shortest path from a starting point (e.g., a restaurant) to a destination (e.g., a customer's house) on a city map. The map can be represented as a 2D grid where each cell has a 'cost' (e.g., traffic congestion, distance, or type of road), and some cells might be impassable (e.g., buildings, rivers). Can you outline, in pseudo-code, an algorithm to find the path with the minimum total cost? You don't need to implement it fully, but focus on the main steps, data structures you'd use, and the logic.",
+      "pseudo_code_problem": "Design an algorithm in pseudo-code to find the shortest path with minimum total cost from a start point to a destination point on a 2D grid. Each grid cell has a specific travel cost, and some cells might be impassable. Describe the main steps, data structures used (e.g., for storing distances, predecessors, or visited nodes), and the core logic of your chosen algorithm (e.g., Dijkstra's or A*)."
     }
   ],
   "closing": [
     {
-      "interviewer": "Amirali, that brings us to the end of our scheduled time today. Thank you very much for your time and for sharing your experiences and insights with us. We'll be reviewing all candidate applications and will get back to you soon regarding the next steps in the process."
+      "interviewer": "Great, that covers all my questions for today. Thank you again, Amirali, for your time and for coming in. It was a pleasure speaking with you."
     },
     {
-      "interviewer": "Do you have any final questions for me?"
+      "interviewer": "Before we conclude, do you have any questions for me about VanTech Solutions, the internship, or the team?"
     },
     {
-      "interviewer": "Thank you again. It was great speaking with you. Have a wonderful day!"
+      "interviewer": "Perfect. We will be reviewing all candidate applications over the next week or so, and our team will get back to you regarding the next steps in the process."
+    },
+    {
+      "interviewer": "If no further questions, then I wish you all the best. Have a great day!"
     }
   ]
 }

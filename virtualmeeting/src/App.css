@@ -2,8 +2,9 @@
   margin: 0;
   width: 100%;
   height: 100vh;
-  background: #bababa;
-  background: linear-gradient(145deg, rgba(186, 186, 186, 1) 50%, rgba(74, 112, 169, 1) 90%, rgba(87, 116, 161, 1) 100%);
+  background: #F5F5F5;
+  background: linear-gradient(145deg, rgba(245, 245, 245, 1) 0%, rgba(74, 112, 169, 0.83) 100%);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 .header{

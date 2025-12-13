@@ -1,38 +1,99 @@
-.startBox{
-    width: 50%;
-    height: 50vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /*background-color: #4A70A9;*/
-    border-radius: 30px;
-    /*box-shadow: 0 10px 30px rgba(0, 0, 0, 0.20);*/
-
-}
-h1{
-    color: whitesmoke;
-}
-p{
-    color: whitesmoke;
+/* =========================
+   Apple System Font Stack
+   ========================= */
+* {
+  box-sizing: border-box;
 }
 
-.welcomeTitle{
-    font-size: 56px;
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont,
+    "SF Pro Display", "SF Pro Text",
+    Helvetica, Arial, sans-serif;
 }
 
-.button{
-    width: 30%;
-    height: 8vh;
-    font-size: large;
-    border-radius: 50px;
-    font-size: 24px;
-    border: 0;
-    background-color: #384B70;
-    color: whitesmoke;
+/* =========================
+   Start Box
+   ========================= */
+.startBox {
+  width: 50%;
+  height: 50vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 28px;
+
+  text-align: center;
 }
 
-.button:hover{
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.20);
-    border: black;
+/* =========================
+   Title
+   ========================= */
+.startBox h1 {
+  margin: 0;
+  font-size: 56px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+
+  color: #f5f5f7;
+}
+
+/* =========================
+   Subtitle / Paragraph
+   ========================= */
+.startBox p {
+  margin-top: 14px;
+  max-width: 520px;
+
+  font-size: 17px;
+  line-height: 1.5;
+
+  color: rgba(245, 245, 247, 0.82);
+}
+
+/* =========================
+   Primary Button
+   ========================= */
+.button {
+  margin-top: 28px;
+
+  min-width: 220px;
+  height: 52px;
+  padding: 0 28px;
+
+  border-radius: 999px;
+  border: none;
+
+  background-color: #384B70;
+  color: #ffffff;
+
+  font-size: 17px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.15s ease;
+}
+
+/* Hover */
+.button:hover {
+  background-color: #2f3f60;
+  box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.15);
+}
+
+/* Pressed */
+.button:active {
+  transform: scale(0.97);
+}
+
+/* Focus (Apple-style ring) */
+.button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(56, 75, 112, 0.35);
 }
