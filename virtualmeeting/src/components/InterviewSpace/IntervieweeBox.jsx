@@ -4,6 +4,11 @@ function IntervieweeBox({ active, onDone }) {
     const [answer, setAnswer] = useState("");
 
     if (!active) return <div className="intervieweeBox muted" />;
+
+    const handleDone = () => {
+        onDone(answer);   // send answer up
+        setAnswer("");   // clear textarea for next question
+    };
     return (
     <div className="intervieweeBox">
         <textarea
@@ -12,7 +17,7 @@ function IntervieweeBox({ active, onDone }) {
         placeholder="Your answer..."
         className="intervieweeTextarea"
         />
-        <button onClick={onDone} className="intervieweeDoneBtn">
+        <button onClick={handleDone} className="intervieweeDoneBtn">
         Done
         </button>
     </div>
