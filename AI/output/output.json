@@ -1,51 +1,51 @@
 {
   "behavioral": [
     {
-      "interviewer": "Hello Ariel, thank you for joining today. How are you doing?"
+      "interviewer": "Hello Ariel, thank you for joining us today. How are you doing?"
     },
     {
-      "interviewer": "Great to hear! Let's start by having you tell me a bit about yourself and your journey in software development."
+      "interviewer": "Great. Let's start by having you tell me a bit about yourself and your journey in software development."
     },
     {
-      "interviewer": "Thank you for that overview. DataVisor is building cutting-edge AI-powered fraud and risk platforms. What specifically motivated you to apply to DataVisor and this Software Engineer position?"
+      "interviewer": "Thanks for that overview, Ariel. You've had some impressive internship experiences. What specifically attracted you to the Software Developer Intern position at VanTech Solutions Inc.?"
     },
     {
-      "interviewer": "Your resume highlights significant work with iOS development using Objective-C and Swift at Workday, as well as C#/.NET at RAD Torque Systems. DataVisor primarily uses Java for its backend and real-time fraud systems. Can you tell us about your experience with Java or how you approach learning and becoming proficient in new programming languages and technologies when tackling complex projects?"
+      "interviewer": "Our role involves designing and developing web applications using modern JavaScript frameworks. While your resume highlights strong experience in .NET MAUI and iOS development, we see JavaScript listed in your skills. Could you tell us about your experience or interest in building web applications with frameworks like React.js?"
     },
     {
-      "interviewer": "At RAD Torque Systems, you optimized execution speeds by 20% by porting software to C# .NET and built a CI/CD pipeline with Jenkins. Can you elaborate on a challenging technical decision you had to make during that optimization or pipeline setup, and how you ensured the solution was scalable and maintainable?"
+      "interviewer": "You’ve worked on optimizing execution speeds at RAD Torque Systems and have strong coursework in Data Structures & Algorithms. Can you describe a specific instance where you applied your knowledge of data structures or algorithms to solve a complex problem or significantly improve the performance of a system you were working on?"
     },
     {
-      "interviewer": "DataVisor deals with large-scale data processing and real-time anti-fraud systems, often involving technologies like Kafka, Flink, and Spark. While your experience is strong in other areas, have you encountered or thought about challenges related to processing high volumes of data, maintaining system reliability under heavy load, or managing distributed systems?"
+      "interviewer": "Collaboration is key here. You've mentioned leading agile sprints and partnering with designers. Could you share an experience where you faced a significant technical challenge as part of a team, and how you contributed to overcoming it?"
     },
     {
-      "interviewer": "You mentioned using UML diagrams for design architecture and applying SOLID principles and object-oriented design. Can you give an example of a time you applied a specific design principle or pattern to solve a problem and what impact it had on the project's long-term quality or maintainability?"
+      "interviewer": "You've accumulated a breadth of experience across different technologies and platforms, from Objective-C/Swift to C# .NET and Python Flask, all while pursuing your degree. How do you approach learning new technologies quickly, and how do you manage to balance multiple projects or responsibilities effectively?"
     }
   ],
   "technical": [
     {
       "question_number": 1,
-      "interviewer": "Alright Ariel, let's move on to the technical part. Here’s a problem for you, you have 5 minutes to identify and discuss any bugs, potential issues, or areas for improvement in this Java code snippet. Think about correctness, performance, edge cases, and scalability. After 5 minutes, we'll discuss your findings.",
-      "code_snippet": "import java.util.ArrayList;\nimport java.util.HashMap;\nimport java.util.List;\nimport java.util.Map;\n\npublic class TransactionMonitor {\n\n    // Stores timestamps of transactions for each user\n    private Map<String, List<Long>> userTransactions = new HashMap<>(); \n\n    /**\n     * Detects if a user has made more than 'maxTransactions' in 'timeWindowSeconds'.\n     * This method is called upon each new transaction for a user.\n     * \n     * @param userId The ID of the user.\n     * @param transactionTimestampMillis The timestamp of the current transaction in milliseconds.\n     * @param maxTransactions The maximum allowed transactions within the window.\n     * @param timeWindowSeconds The duration of the time window in seconds.\n     * @return true if the user's activity is considered fraudulent, false otherwise.\n     */\n    public boolean checkFraudulentActivity(String userId, long transactionTimestampMillis, int maxTransactions, int timeWindowSeconds) {\n        List<Long> transactions = userTransactions.getOrDefault(userId, new ArrayList<>());\n        transactions.add(transactionTimestampMillis);\n\n        // Remove old transactions outside the window\n        transactions.removeIf(txTime -> (transactionTimestampMillis - txTime) / 1000 > timeWindowSeconds);\n\n        userTransactions.put(userId, transactions); \n\n        return transactions.size() > maxTransactions;\n    }\n}"
+      "interviewer": "Alright Ariel, let's move on to some technical challenges. Here’s a coding problem for you. You'll have about 5 minutes to review it, identify any issues, and tell me how you would fix them or improve the code. You can talk me through your thought process.",
+      "code_snippet": "function findFirstUniqueChar(str) {\n    if (str === null || str.length === 0) {\n        return null;\n    }\n\n    const charCount = {};\n    for (let i = 0; i <= str.length; i++) { \n        const char = str[i];\n        charCount[char] = (charCount[char] || 0) + 1;\n    }\n\n    for (let i = 0; i < str.length; i++) {\n        const char = str[i];\n        if (charCount[char] === 1) {\n            return char;\n        }\n    }\n    return undefined;\n}"
     },
     {
       "question_number": 2,
-      "interviewer": "Excellent. For the next technical problem, I'd like you to design a high-level system. DataVisor operates on real-time, large-scale data streams. Given a continuous stream of payment transactions, each containing `(transactionId, userId, amount, merchantId, timestamp)`, design a system that can detect if a user's *total transaction amount* within any *5-minute rolling window* exceeds a predefined threshold (e.g., $10,000). The system must operate in real-time, handle millions of transactions per second, and be fault-tolerant and scalable across multiple processing nodes, potentially in different geographical regions. Describe the high-level architecture and key components, including how you would manage state for each user across different processing nodes and ensure correctness. You can use pseudo-code or describe the logic step-by-step.",
-      "pseudo_code_problem": "Design a real-time, distributed system for 'Total Transaction Amount in Rolling Window' anomaly detection.\n\n**Input:** A continuous stream of transaction events: `(transactionId: String, userId: String, amount: Double, merchantId: String, timestamp: Long)`.\n\n**Rule:** Flag a `userId` as anomalous if their *sum of `amount`* for all transactions within *any 5-minute rolling window* exceeds a predefined `THRESHOLD` (e.g., $10,000).\n\n**Constraints:**\n-   Real-time processing (low latency).\n-   Handle millions of transactions per second.\n-   Fault-tolerant (no data loss in case of node failures).\n-   Scalable across multiple processing nodes/regions.\n\n**Describe:**\n1.  **High-level Architecture:** What components would you use and how would they interact?\n2.  **Core Logic:** How would you process individual transactions to maintain the sum for each user within the rolling window?\n3.  **State Management:** How would you store and manage the per-user transaction sums and timestamps across distributed nodes, ensuring correctness and consistency?\n4.  **Scalability & Fault Tolerance:** How does your design address these requirements, especially for handling increased load or node failures?"
+      "interviewer": "Excellent. For our second technical question, I'd like you to think about a design problem. You can describe your solution using pseudo-code. Imagine you're building a backend service for a popular e-commerce website. Many product details are frequently requested. Describe, in pseudo-code, how you would design a basic in-memory caching mechanism to improve performance for retrieving product details. Consider the core operations: adding an item to the cache, retrieving an item, and a simple eviction policy (e.g., Least Recently Used - LRU, or a time-based expiration). Focus on the data structures and algorithmic steps involved.",
+      "pseudo_code_problem": "Design a basic in-memory caching mechanism for a backend service that retrieves frequently requested product details. Describe the core operations (add, retrieve, evict) in pseudo-code. Consider a simple eviction policy like LRU or time-based expiration. Focus on data structures and algorithmic steps."
     }
   ],
   "closing": [
     {
-      "interviewer": "Thank you, Ariel, that was a very insightful discussion. We've covered a lot today."
+      "interviewer": "That brings us to the end of our scheduled time. Thank you again, Ariel, for taking the time to speak with us today. It was great learning more about your experience and skills."
     },
     {
-      "interviewer": "Do you have any questions for me about DataVisor, the team, or the role?"
+      "interviewer": "We appreciate your interest in VanTech Solutions. We will be reviewing all candidate applications and will get back to you regarding the next steps in the coming week or two."
     },
     {
-      "interviewer": "Thank you for those questions. We appreciate you taking the time to speak with us today. We will be reviewing all candidates and will get back to you regarding the next steps in the coming days."
+      "interviewer": "Do you have any questions for me before we conclude?"
     },
     {
-      "interviewer": "It was a pleasure speaking with you. Have a great day!"
+      "interviewer": "Great. Thanks again, Ariel. Have a wonderful day!"
     }
   ]
 }
