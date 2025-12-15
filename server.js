@@ -39,8 +39,12 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
+app.get("/", (req,res)=>{
+    res.render("index");
+});
+
 // Uploading resume and pasting job Description
-app.get("/", (req, res)=>{
+app.get("/new/mock", (req, res)=>{
     res.render("upload");
 });
 

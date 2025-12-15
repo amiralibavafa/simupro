@@ -3,9 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="icon" type="image/png" href="/img/icon_logo.png">
+    <title>SimuPro | AI Powered Interview Prep</title>
 </head>
 <body>
+    <div class="header">
+        <div class="header-left">
+            <img src="/img/main_logo-removebg.png" alt="SimuPro Logo" class="logo">
+        </div>
+
+        <nav class="header-right">
+            <a href="#about">About</a>
+            <a href="/new/mock" target="_blank">Try SimuPro</a>
+            <button class="contact-btn">Contact Us</button>
+        </nav>
+    </div>
     
+    <div class="home">
+        <div class="homeLeft">
+            <h1 class="animate__animated animate__fadeInLeft">Ace Your Interview</h1>
+            <h1 class="animate__animated animate__fadeInLeft">Powered by AI</h1>
+            <h6 class="animate__animated animate__fadeInUp">Upload, Practice, Score. Your path to career success</h6>
+            <div class="homeIconBox animate__animated animate__fadeInUp">
+                <div class="hmIcon">
+                    <i class="homeIcon" data-lucide="file-up"></i>
+                    <span>Upload Resume</span>
+                </div>
+                <div class="hmIcon">
+                    <i class="homeIcon" data-lucide="file-text"></i>
+                    <span>Mock Interview</span>
+                </div>
+                <div class="hmIcon">
+                    <i class="homeIcon" data-lucide="file-check-corner"></i>
+                    <span>Instant Feedback</span>
+                </div>
+            </div>
+        </div>
+        <div class="homeRight"></div>
+    </div>
+
+    <div class="home2">
+        <div class="home2left">
+            <h2 class="fadeUp">READY TO ACE YOUR</h2>
+            <h2 class="fadeUp">NEXT INTERVIEW?</h2>
+            <h6 class="fadeUp">Experience the future of AI interview preparation.</h6>
+            <a href="/new/mock" target="_blank" class="cta-btn fadeUp">TEST THE AI NOW</a>
+        </div>
+        <div class="home2right"></div>
+    </div>
+
+    <div class="about" id="about">
+        <div class="aboutLeft"></div>
+        <div class="aboutRight fadeUp">
+            <h2>Our Mission</h2>
+            <p>
+            SimuPro is your <strong>AI-powered interview coach</strong>.  
+            Upload your resume and job description, take a realistic <strong>mock interview</strong>,  
+            and get <strong>personalized scores</strong> and actionable suggestions.  
+            Practice smarter, perform better, succeed faster.  
+            Designed for students and professionals aiming for <strong>career success</strong>.  
+            Empower your preparation, build confidence, and impress every interviewer.
+            </p> <br>
+            <a href="/new/mock" target="_blank" class="cta-btn fadeUp">TEST THE AI NOW</a>
+        </div>
+    </div>
+
+    <div class="footer" id="footer">
+        <div class="footerBox fadeUp">
+            <!-- Contact info -->
+            <div class="footer1">
+                <h3>Let's Talk</h3>
+                <p><a href="mailto:hey@simpro.ai">hey@simpro.ai</a></p>
+            </div>
+        </div>
+
+        <!-- Animated background -->
+        <ul class="footerCircles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+        <div class="footerCR">
+            <p>
+                &copy; 2025-2026 SimuPro. Engineered by 
+                <a href="https://bavafa.co" target="_blank">bavafa.co</a>
+            </p>
+        </div>
+    </div>
+
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const fadeEls = document.querySelectorAll(".fadeUp");
+
+            const observer = new IntersectionObserver(
+                (entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("show");
+                            observer.unobserve(entry.target); // animate only once
+                        }
+                    });
+                },
+                { threshold: 0.5 } // trigger when 10% visible
+            );
+
+            fadeEls.forEach(el => observer.observe(el));
+        });
+    </script>
 </body>
 </html>

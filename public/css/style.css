@@ -1,0 +1,476 @@
+body{
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+                 "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 10vh;
+    padding: 0 3rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(245, 245, 245, 0.50);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    z-index: 1000;
+
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+                 "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Logo */
+.logo {
+    height: 160px;
+    object-fit: contain;
+}
+
+/* Right menu */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-right: 10rem;
+}
+
+/* Menu links */
+.header-right a {
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: #1d1d1f;
+
+    transition: opacity 0.2s ease;
+}
+
+.header-right a:hover {
+    opacity: 0.7;
+}
+
+/* Contact button */
+.contact-btn {
+    padding: 0.55rem 1.2rem;
+    font-size: 1rem;
+
+    background-color: #384B70;
+    color: #ffffff;
+
+    border: none;
+    border-radius: 999px; /* Apple pill */
+    cursor: pointer;
+
+    transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.contact-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(56, 75, 112, 0.25);
+    opacity: 0.95;
+}
+
+.contact-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(56, 75, 112, 0.2);
+}
+
+
+
+.home{
+    width: 100%;
+    height: 100vh;
+    background-image: url("/img/bg-img.png");
+    background-size: cover;
+    background-position: calc(50% + 80px) center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.homeRight{
+    width: 50%;
+    height: 90vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.homeLeft h1 {
+    font-size: clamp(2.8rem, 5vw, 4rem);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #1d1d1f;
+    margin: 0;
+}
+
+/* AI highlight */
+.homeLeft h1:nth-child(2) {
+    color: #384B70; /* your blue */
+}
+
+/* Subheadline */
+.homeLeft h6 {
+    margin-top: 1rem;
+    font-size: 1.15rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgba(29, 29, 31, 0.75);
+    max-width: 520px;
+}
+
+.homeIconBox{
+    display: flex;
+    justify-content: space-between;
+}
+
+.hmIcon{
+    width: 76px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.homeIcon {
+    width: 76px;         /* sets width */
+    height: 76px;        /* sets height */
+    stroke-width: 1;     /* line thickness */
+    color: #384B70;      /* your blue accent */
+}
+
+.hmIcon span {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+                 "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #384B70;
+}
+
+.home2{
+    width: 100%;
+    height: 100vh;
+
+    background-image: url("/img/bg-img-2.png");
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home2left h2 {
+    font-size: clamp(2.8rem, 5vw, 4rem);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #384B70;
+    margin: 0;
+}
+
+.home2left h6 {
+    margin-top: 1rem;
+    font-size: 1.15rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgba(29, 29, 31, 0.75);
+    max-width: 520px;
+}
+
+.home2right{
+    width: 50%;
+    height: 90vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 0.75rem 1.6rem;   /* pill shape */
+    font-size: 1.35rem;
+    font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+                 "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #ffffff;            /* text color */
+    background-color: #384B70; /* your blue accent */
+    border-radius: 999px;      /* perfect pill shape */
+    text-decoration: none;     /* remove underline */
+    box-shadow: 0 6px 16px rgba(56, 75, 112, 0.25); /* subtle depth */
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.cta-btn:hover {
+    box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.15);
+    background-color: #2f3f60;
+}
+
+.cta-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(56, 75, 112, 0.2);
+}
+
+.fadeUp {
+    opacity: 0;
+    transform: translateY(90px);
+    transition: all 1.5s ease-out;
+}
+
+.fadeUp.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about{
+    width: 100%;
+    height: 100vh;
+    background-image: url("/img/about-us-bg.png");
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutLeft{
+    width: 50%;
+    height: 90vh;
+}
+.aboutRight{
+    width: 50%;
+    height: auto;
+    text-align: center;
+}
+
+.aboutRight h2 {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", Helvetica, Arial, sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #1d1d1f;
+    margin-bottom: 1rem;
+}
+
+.aboutRight p {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", Helvetica, Arial, sans-serif;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: 400;
+    line-height: 1.6;
+    color: rgba(29,29,31,0.8);
+    max-width: 520px;
+    margin: 0 auto;  /* center text in its column */
+}
+
+.footer {
+    position: relative;
+    width: 100%;
+    min-height: 30vh;
+    overflow: hidden;
+    background-color: #f5f5f5; /* your footer blue */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: #1d1d1f;
+}
+
+/* Footer content box */
+.footerBox {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+    z-index: 2; /* above animation */
+}
+
+/* Copyright */
+.footerCR {
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 2;
+    margin-bottom: 1rem;
+}
+
+/* Animated circles */
+.footerCircles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    list-style: none;
+    z-index: 1; /* behind content */
+    padding: 0;
+    margin: 0;
+}
+
+.footerCircles li {
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: rgba(56, 75, 112, 0.12); 
+    bottom: -150px;
+    border-radius: 50%;
+    animation: footerAnimate 25s linear infinite;
+}
+
+/* Different sizes/positions/delays */
+.footerCircles li:nth-child(1){ left: 25%; width: 80px; height: 80px; animation-delay: 0s; }
+.footerCircles li:nth-child(2){ left: 10%; width: 20px; height: 20px; animation-delay: 2s; animation-duration: 12s; }
+.footerCircles li:nth-child(3){ left: 70%; width: 20px; height: 20px; animation-delay: 4s; }
+.footerCircles li:nth-child(4){ left: 40%; width: 60px; height: 60px; animation-delay: 0s; animation-duration: 18s; }
+.footerCircles li:nth-child(5){ left: 65%; width: 20px; height: 20px; animation-delay: 0s; }
+.footerCircles li:nth-child(6){ left: 75%; width: 110px; height: 110px; animation-delay: 3s; }
+.footerCircles li:nth-child(7){ left: 35%; width: 150px; height: 150px; animation-delay: 7s; }
+.footerCircles li:nth-child(8){ left: 50%; width: 25px; height: 25px; animation-delay: 15s; animation-duration: 45s; }
+.footerCircles li:nth-child(9){ left: 20%; width: 15px; height: 15px; animation-delay: 2s; animation-duration: 35s; }
+.footerCircles li:nth-child(10){ left: 85%; width: 150px; height: 150px; animation-delay: 0s; animation-duration: 11s; }
+
+/* Keyframes for floating effect */
+@keyframes footerAnimate {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+.footerCR p {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", Helvetica, Arial, sans-serif;
+    font-size: 0.95rem;
+    color: #1d1d1f;
+    margin: 0;
+    text-align: center;
+}
+
+.footerCR a {
+    color: #384B70; /* your brand blue */
+    text-decoration: underline;
+    transition: opacity 0.2s ease;
+}
+
+.footerCR a:hover {
+    opacity: 0.7;
+}
+
+
+/* Footer1 - contact info */
+.footer1 h3 {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", Helvetica, Arial, sans-serif;
+    font-size: 3.3rem;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-bottom: 0.5rem;
+}
+
+.footer1 p a {
+    font-size: 1.2rem;
+    color: #384B70;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.footer1 p a:hover {
+    opacity: 0.7;
+}
+
+/* Footer2 - vertical line */
+.footer2 {
+    width: 2px;
+    height: 100%;
+    background-color: #384B70;
+    flex-shrink: 0;
+    margin: 0 1rem;
+}
+
+/* Contact form */
+.footerContactForm form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 250px;
+}
+
+.footerContactForm input,
+.footerContactForm textarea {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", Helvetica, Arial, sans-serif;
+    font-size: 0.95rem;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.footerContactForm input:focus,
+.footerContactForm textarea:focus {
+    border-color: #384B70;
+    box-shadow: 0 0 5px rgba(56,75,112,0.2);
+}
+
+.footerContactForm button {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.55rem 1.2rem;
+    border: none;
+    border-radius: 999px; /* pill shape like Apple buttons */
+    background-color: #384B70;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.footerContactForm button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(56,75,112,0.25);
+    opacity: 0.95;
+}
+
+.footerContactForm button:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(56,75,112,0.2);
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+    .footerBox {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer2 {
+        display: none;
+    }
+
+    .footerContactForm form {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+
+
+
