@@ -1,51 +1,51 @@
 {
   "behavioral": [
     {
-      "interviewer": "Hello Ariel, thank you for joining us today. How are you doing?"
+      "interviewer": "Hello Saam, thank you for joining us today. How are you doing?"
     },
     {
-      "interviewer": "Great. Let's start by having you tell me a bit about yourself and your journey in software development."
+      "interviewer": "Great to hear! To start, could you please tell me a bit about yourself and your journey in data science so far?"
     },
     {
-      "interviewer": "Thanks for that overview, Ariel. You've had some impressive internship experiences. What specifically attracted you to the Software Developer Intern position at VanTech Solutions Inc.?"
+      "interviewer": "That's a fantastic overview of your experience. Given your background and interests, what specifically attracted you to apply for the Data Science Intern position at Boeing, and what do you hope to gain from this internship?"
     },
     {
-      "interviewer": "Our role involves designing and developing web applications using modern JavaScript frameworks. While your resume highlights strong experience in .NET MAUI and iOS development, we see JavaScript listed in your skills. Could you tell us about your experience or interest in building web applications with frameworks like React.js?"
+      "interviewer": "The job description mentions working closely with customers to understand business problems and effectively communicating technical outcomes. In your past roles, perhaps as a Web and App Developer at NexusWave or as a Research Assistant, can you describe a time you had to explain a complex technical concept or analytical finding to a non-technical audience or client? How did you ensure they understood your insights?"
     },
     {
-      "interviewer": "You’ve worked on optimizing execution speeds at RAD Torque Systems and have strong coursework in Data Structures & Algorithms. Can you describe a specific instance where you applied your knowledge of data structures or algorithms to solve a complex problem or significantly improve the performance of a system you were working on?"
+      "interviewer": "Your projects, especially the Stock Prediction Model and the Soccer Match Prediction Model, involve significant data preparation and feature engineering. Can you walk me through a specific instance where you encountered a messy or incomplete dataset, and how you approached the exploratory analysis and characterization to prepare it for modeling?"
     },
     {
-      "interviewer": "Collaboration is key here. You've mentioned leading agile sprints and partnering with designers. Could you share an experience where you faced a significant technical challenge as part of a team, and how you contributed to overcoming it?"
+      "interviewer": "Boeing emphasizes collaboration and working with a mentor or team. At NexusWave, you mentioned utilizing Agile methodology. Can you share an experience where you collaborated effectively on a technical project, particularly highlighting how using Agile principles helped manage the project or resolve conflicts among team members?"
     },
     {
-      "interviewer": "You've accumulated a breadth of experience across different technologies and platforms, from Objective-C/Swift to C# .NET and Python Flask, all while pursuing your degree. How do you approach learning new technologies quickly, and how do you manage to balance multiple projects or responsibilities effectively?"
+      "interviewer": "The Data Scientist intern role often requires researching and proposing appropriate technologies or methods to address business problems. Can you describe a project where you had to identify a problem, research different methods or technologies to solve it, and then implement your chosen solution, perhaps from one of your more complex ML projects?"
     }
   ],
   "technical": [
     {
       "question_number": 1,
-      "interviewer": "Alright Ariel, let's move on to some technical challenges. Here’s a coding problem for you. You'll have about 5 minutes to review it, identify any issues, and tell me how you would fix them or improve the code. You can talk me through your thought process.",
-      "code_snippet": "function findFirstUniqueChar(str) {\n    if (str === null || str.length === 0) {\n        return null;\n    }\n\n    const charCount = {};\n    for (let i = 0; i <= str.length; i++) { \n        const char = str[i];\n        charCount[char] = (charCount[char] || 0) + 1;\n    }\n\n    for (let i = 0; i < str.length; i++) {\n        const char = str[i];\n        if (charCount[char] === 1) {\n            return char;\n        }\n    }\n    return undefined;\n}"
+      "interviewer": "Alright, let's move on to a coding problem. Here’s a Python function that attempts to calculate a simple moving average for a series of data points. You have 5 minutes to review it, identify any bugs or potential issues, and then propose how you would fix them or improve the code. You can talk me through your thought process.",
+      "code_snippet": "def calculate_moving_average(data_series, window):\n    \"\"\"\n    Calculates the simple moving average for a given data series.\n    \n    Args:\n        data_series (list of float): A list of numerical data points.\n        window (int): The size of the moving average window.\n        \n    Returns:\n        list of float: A list containing the moving averages.\n    \"\"\"\n    if not data_series or window <= 0:\n        return []\n    \n    moving_averages = []\n    for i in range(len(data_series)):\n        if i >= window: # Potential bug: Check window logic for first full window\n            current_window_sum = sum(data_series[i-window:i]) # Potential bug: Slicing might exclude current element\n            moving_average = current_window_sum / window\n            moving_averages.append(moving_average)\n        else:\n            moving_averages.append(None) # Or NaN, but None is explicit\n            \n    return moving_averages"
     },
     {
       "question_number": 2,
-      "interviewer": "Excellent. For our second technical question, I'd like you to think about a design problem. You can describe your solution using pseudo-code. Imagine you're building a backend service for a popular e-commerce website. Many product details are frequently requested. Describe, in pseudo-code, how you would design a basic in-memory caching mechanism to improve performance for retrieving product details. Consider the core operations: adding an item to the cache, retrieving an item, and a simple eviction policy (e.g., Least Recently Used - LRU, or a time-based expiration). Focus on the data structures and algorithmic steps involved.",
-      "pseudo_code_problem": "Design a basic in-memory caching mechanism for a backend service that retrieves frequently requested product details. Describe the core operations (add, retrieve, evict) in pseudo-code. Consider a simple eviction policy like LRU or time-based expiration. Focus on data structures and algorithmic steps."
+      "interviewer": "Excellent. Now, for our second technical question, I'd like you to think about system design. Given your experience with real-time market tracking and sentiment analysis, imagine you're tasked with building a system to detect anomalies in a real-time stream of sensor data, like temperature readings from an aircraft engine. An anomaly is defined as a reading that deviates significantly from its recent historical average. In pseudo-code, describe the design of such a system, considering how it would process incoming readings one by one, maintain a moving window of data, and identify anomalies. Focus on the data structures and algorithmic steps involved. You can assume you have a 'get_next_reading()' function.",
+      "pseudo_code_problem": "Design a pseudo-code system for real-time anomaly detection in a stream of numerical sensor data.\n\nInput: A continuous stream of `sensor_reading` values.\nOutput: For each reading, classify it as 'Anomaly' or 'Normal'.\n\nParameters:\n- `window_size`: The number of recent readings to consider for the historical average and standard deviation.\n- `threshold_multiplier`: A factor (e.g., 2 or 3) indicating how many standard deviations away from the mean constitutes an anomaly.\n\nRequirements:\n1. The system must process readings sequentially as they arrive.\n2. It must maintain a moving window of the `window_size` most recent readings.\n3. For each new reading, it should calculate the mean and standard deviation of the current window.\n4. Identify a reading as an 'Anomaly' if its value falls outside `mean +/- (threshold_multiplier * standard_deviation)`.\n\nYour pseudo-code should illustrate the main components and logic, including how to handle the initial warm-up period before the window is full."
     }
   ],
   "closing": [
     {
-      "interviewer": "That brings us to the end of our scheduled time. Thank you again, Ariel, for taking the time to speak with us today. It was great learning more about your experience and skills."
+      "interviewer": "Thank you for your insights on both the behavioral and technical questions, Saam. It was a pleasure speaking with you today and learning more about your skills and experience."
     },
     {
-      "interviewer": "We appreciate your interest in VanTech Solutions. We will be reviewing all candidate applications and will get back to you regarding the next steps in the coming week or two."
+      "interviewer": "We will be reviewing all candidate applications over the next few weeks, and we will be in touch regarding the next steps in the process. Please feel free to reach out if you have any further questions in the meantime."
     },
     {
-      "interviewer": "Do you have any questions for me before we conclude?"
+      "interviewer": "Do you have any final questions for me?"
     },
     {
-      "interviewer": "Great. Thanks again, Ariel. Have a wonderful day!"
+      "interviewer": "Alright. Thanks again for your time, Saam. Have a great day!"
     }
   ]
 }

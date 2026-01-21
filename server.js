@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import path from "path";
@@ -6,9 +7,10 @@ import { fileURLToPath } from "url";
 import bodyParser from "body-parser";
 import multer from "multer";
 import fs from "fs";
+import interviewRoutes from "./routes/interview.js";
 
 const app = express();
-const PORT = 5005;
+const PORT = process.env.PORT || 5005;
 
 let latestMock = null;
 
@@ -16,8 +18,12 @@ let latestMock = null;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// CORS configuration - allow all localhost origins in development
 // Middleware
-app.use(cors({ origin: "http://localhost:3001", credentials: true })); // allow React fetch
+app.use(cors({
+  origin: true, // Allow all origins in development
+  credentials: true,
+}));
 app.use(express.json());          // For JSON body parsing
 app.use(express.static(path.join(__dirname, "public"))); // Serve CSS/Images/JS
 app.use(express.urlencoded({ extended: true })); 
@@ -95,8 +101,10 @@ app.get("/mock/status", (req, res) => {
   }
 });
 
+// Voice interview API routes
+app.use("/api", interviewRoutes);
 
 // Start server
 app.listen(PORT, () => {
-    console.log(`🚀 Server running on http://localhost:${PORT}`);
+    console.log(`Server running on http://localhost:${PORT}`);
 });

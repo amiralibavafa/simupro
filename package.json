@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "test": "node tests/api.test.js"
   },
   "author": "Amirali Bavafa",
   "license": "MIT",
@@ -14,10 +15,12 @@
     "@yoing/pdf.js-extract": "^0.1.5",
     "body-parser": "^2.2.1",
     "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
     "ejs": "^3.1.10",
     "express": "^5.2.1",
     "hume": "^0.15.6",
     "multer": "^2.0.2",
+    "openai": "^6.16.0",
     "pdf-text-extract": "^1.5.0",
     "pdfreader": "^3.0.8",
     "say": "^0.16.0"

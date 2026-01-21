@@ -1,7 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import InterviewerBox from "./InterviewerBox";
 import IntervieweeBox from "./IntervieweeBox";
 import "./interview.css";
+
+// API base URL from environment variable with sensible default
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:5005";
 
 function Interview({ onComplete }) {
   const [mockData, setMockData] = useState(null);
@@ -10,9 +13,12 @@ function Interview({ onComplete }) {
   const [phase, setPhase] = useState("ai"); // ai | user
   const [allAnswers, setAllAnswers] = useState("");
 
+  // Generate a unique session ID for this interview session
+  const sessionId = useMemo(() => `session_${Date.now()}`, []);
+
   useEffect(() => {
     const checkStatus = async () => {
-      const res = await fetch("http://localhost:5005/mock/status");
+      const res = await fetch(`${API_BASE_URL}/mock/status`);
       const data = await res.json();
       if (data.ready) {
         setMockData(data.data);
@@ -56,6 +62,10 @@ function Interview({ onComplete }) {
 
       <IntervieweeBox
         active={phase === "user"}
+        sessionId={sessionId}
+        questionId={`q_${index}`}
+        question={questions[index]?.interviewer}
+        mode="voice"
         onDone={(answer) => {
           handleAnswerDone(answer);
           setPhase("ai");
