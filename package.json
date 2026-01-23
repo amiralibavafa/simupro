@@ -20,7 +20,6 @@
     "express": "^5.2.1",
     "hume": "^0.15.6",
     "multer": "^2.0.2",
-    "openai": "^6.16.0",
     "pdf-text-extract": "^1.5.0",
     "pdfreader": "^3.0.8",
     "say": "^0.16.0"

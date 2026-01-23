@@ -1,6 +1,6 @@
 // services/storage.js
 // JSON file-based storage for interview answers
-// Safe append/update logic with file locking to prevent corruption
+// Safe atomic writes (write temp file then rename)
 
 import fs from "fs";
 import path from "path";
@@ -19,7 +19,7 @@ function ensureDataDir() {
   }
 }
 
-// Read all interview data (thread-safe)
+// Read all interview data
 function readInterviewData() {
   ensureDataDir();
 
@@ -32,22 +32,15 @@ function readInterviewData() {
     return JSON.parse(data);
   } catch (err) {
     console.error("Error reading interviews file:", err);
-    // If file is corrupted, backup and start fresh
-    if (fs.existsSync(INTERVIEWS_FILE)) {
-      const backupPath = `${INTERVIEWS_FILE}.backup.${Date.now()}`;
-      fs.renameSync(INTERVIEWS_FILE, backupPath);
-      console.log(`Corrupted file backed up to: ${backupPath}`);
-    }
     return {};
   }
 }
 
-// Write interview data atomically (thread-safe)
+// Write interview data atomically (temp file then rename)
 function writeInterviewData(data) {
   ensureDataDir();
 
-  // Write to temp file first, then rename (atomic operation)
-  const tempFile = `${INTERVIEWS_FILE}.tmp`;
+  const tempFile = `${INTERVIEWS_FILE}.tmp.${Date.now()}`;
   fs.writeFileSync(tempFile, JSON.stringify(data, null, 2), "utf-8");
   fs.renameSync(tempFile, INTERVIEWS_FILE);
 }
@@ -57,11 +50,11 @@ function writeInterviewData(data) {
  * @param {object} params - Answer data
  * @param {string} params.sessionId - Interview session ID
  * @param {string} params.questionId - Question identifier
- * @param {string} params.transcript - Raw transcript from speech-to-text
- * @param {string} params.aiAnswer - AI-generated response/feedback
+ * @param {string} params.transcript - Transcript from Web Speech API
+ * @param {string} params.question - The question text (optional)
  * @returns {object} - Saved answer with createdAt timestamp
  */
-export function saveAnswer({ sessionId, questionId, transcript, aiAnswer }) {
+export function saveAnswer({ sessionId, questionId, transcript, question }) {
   const data = readInterviewData();
 
   // Initialize session if it doesn't exist
@@ -81,7 +74,7 @@ export function saveAnswer({ sessionId, questionId, transcript, aiAnswer }) {
   const answerRecord = {
     questionId,
     transcript,
-    aiAnswer,
+    question,
     createdAt: new Date().toISOString(),
   };
 
@@ -93,7 +86,6 @@ export function saveAnswer({ sessionId, questionId, transcript, aiAnswer }) {
     data[sessionId].answers.push(answerRecord);
   }
 
-  // Update session's lastUpdated timestamp
   data[sessionId].lastUpdated = new Date().toISOString();
 
   writeInterviewData(data);
@@ -112,33 +104,40 @@ export function getSessionAnswers(sessionId) {
 }
 
 /**
- * Get all sessions
- * @returns {object} - All interview sessions
- */
-export function getAllSessions() {
-  return readInterviewData();
-}
-
-/**
- * Delete a session
+ * Save job description for a session
  * @param {string} sessionId - Interview session ID
- * @returns {boolean} - True if deleted, false if not found
+ * @param {string} jobDescription - Job description text
  */
-export function deleteSession(sessionId) {
+export function saveJobDescription(sessionId, jobDescription) {
   const data = readInterviewData();
 
   if (!data[sessionId]) {
-    return false;
+    data[sessionId] = {
+      sessionId,
+      createdAt: new Date().toISOString(),
+      answers: [],
+    };
   }
 
-  delete data[sessionId];
+  data[sessionId].jobDescription = jobDescription;
+  data[sessionId].lastUpdated = new Date().toISOString();
+
   writeInterviewData(data);
-  return true;
+}
+
+/**
+ * Get job description for a session
+ * @param {string} sessionId - Interview session ID
+ * @returns {string|null} - Job description or null
+ */
+export function getJobDescription(sessionId) {
+  const data = readInterviewData();
+  return data[sessionId]?.jobDescription || null;
 }
 
 export default {
   saveAnswer,
   getSessionAnswers,
-  getAllSessions,
-  deleteSession,
+  saveJobDescription,
+  getJobDescription,
 };

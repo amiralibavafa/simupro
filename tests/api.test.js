@@ -44,32 +44,25 @@ async function runTests() {
         if (res.status !== 400) {
           throw new Error(`Expected 400, got ${res.status}`);
         }
-        const data = await res.json();
-        if (!data.error.includes("sessionId")) {
-          throw new Error("Should mention sessionId in error");
-        }
       }
     )
   );
 
-  // Test 3: Interview answer endpoint processes valid request
+  // Test 3: Interview answer endpoint saves valid request
   results.push(
     await testEndpoint(
-      "POST /api/interview/answer accepts valid data",
+      "POST /api/interview/answer saves valid data",
       async () => {
         const res = await fetch(`${BASE_URL}/api/interview/answer`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            sessionId: "test_session_1",
+            sessionId: "test_session_api",
             questionId: "test_q_1",
-            transcript: "This is a test answer for the interview question.",
+            transcript: "This is a test answer.",
           }),
         });
-        if (!res.ok) {
-          const data = await res.json();
-          throw new Error(`Status ${res.status}: ${data.error || data.details}`);
-        }
+        if (!res.ok) throw new Error(`Status ${res.status}`);
         const data = await res.json();
         if (data.saved !== true) {
           throw new Error("Should return saved: true");
@@ -84,7 +77,7 @@ async function runTests() {
       "GET /api/interview/session/:id returns session data",
       async () => {
         const res = await fetch(
-          `${BASE_URL}/api/interview/session/test_session_1`
+          `${BASE_URL}/api/interview/session/test_session_api`
         );
         if (!res.ok) throw new Error(`Status ${res.status}`);
         const data = await res.json();
@@ -95,13 +88,32 @@ async function runTests() {
     )
   );
 
-  // Test 5: Transcribe endpoint validation (no file)
+  // Test 5: Empty session returns empty answers
   results.push(
     await testEndpoint(
-      "POST /api/transcribe requires audio file",
+      "GET /api/interview/session/:id returns empty for new session",
       async () => {
-        const res = await fetch(`${BASE_URL}/api/transcribe`, {
+        const res = await fetch(
+          `${BASE_URL}/api/interview/session/nonexistent_session_xyz`
+        );
+        if (!res.ok) throw new Error(`Status ${res.status}`);
+        const data = await res.json();
+        if (!Array.isArray(data.answers) || data.answers.length !== 0) {
+          throw new Error("Should return empty answers array");
+        }
+      }
+    )
+  );
+
+  // Test 6: Analyze endpoint requires sessionId
+  results.push(
+    await testEndpoint(
+      "POST /api/interview/analyze requires sessionId",
+      async () => {
+        const res = await fetch(`${BASE_URL}/api/interview/analyze`, {
           method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ jobDescription: "Test job" }),
         });
         if (res.status !== 400) {
           throw new Error(`Expected 400, got ${res.status}`);
@@ -110,16 +122,35 @@ async function runTests() {
     )
   );
 
-  // Test 6: Session 404 for non-existent
+  // Test 7: Analyze endpoint requires jobDescription
   results.push(
     await testEndpoint(
-      "GET /api/interview/session/:id returns 404 for missing",
+      "POST /api/interview/analyze requires jobDescription",
+      async () => {
+        const res = await fetch(`${BASE_URL}/api/interview/analyze`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ sessionId: "test123" }),
+        });
+        if (res.status !== 400) {
+          throw new Error(`Expected 400, got ${res.status}`);
+        }
+      }
+    )
+  );
+
+  // Test 8: Get analysis returns not analyzed for new session
+  results.push(
+    await testEndpoint(
+      "GET /api/interview/analyze/:id returns not analyzed for new session",
       async () => {
         const res = await fetch(
-          `${BASE_URL}/api/interview/session/nonexistent_session_xyz`
+          `${BASE_URL}/api/interview/analyze/nonexistent_xyz`
         );
-        if (res.status !== 404) {
-          throw new Error(`Expected 404, got ${res.status}`);
+        if (!res.ok) throw new Error(`Status ${res.status}`);
+        const data = await res.json();
+        if (data.analyzed !== false) {
+          throw new Error("Should return analyzed: false");
         }
       }
     )

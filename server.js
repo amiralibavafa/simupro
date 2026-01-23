@@ -74,16 +74,18 @@ app.post("/submit", upload.single("resume"), (req, res) => {
     try {
       const mock = await generateNewMock(resumePath, jobDescription);
 
-      //console.log("Mock generated:", mock);
-
       // Delete resume after processing
       fs.unlink(resumePath, (err) => {
         if (err) console.error("Error deleting resume:", err);
       });
 
-      latestMock = mock;
+      // Store job description with the mock data for later use in analysis
+      latestMock = {
+        ...mock,
+        jobDescription: jobDescription,
+      };
 
-      console.log(latestMock);
+      console.log("Mock generated with jobDescription");
 
     } catch (err) {
       console.error("Error during mock generation:", err);

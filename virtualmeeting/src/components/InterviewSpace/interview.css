@@ -6,6 +6,11 @@
     align-items: center;
 }
 
+.mainArea--analysis {
+    justify-content: center;
+    overflow-y: auto;
+}
+
 .interviewerBox{
   width: 45%;
   height: 100%;
@@ -318,5 +323,406 @@
   50% {
     opacity: 0.3;
   }
+}
+
+.voiceButtons {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* ====================== */
+/* Analysis Section Styles */
+/* ====================== */
+
+.analysisSection {
+  width: 100%;
+  max-width: 600px;
+  margin: 24px auto;
+  padding: 24px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.analysisTitle {
+  margin: 0 0 20px 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1d1d1f;
+}
+
+.analysisInput {
+  margin-bottom: 16px;
+}
+
+.analysisInput label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6e6e73;
+}
+
+.jobDescTextarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e5e5e7;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 80px;
+}
+
+.jobDescTextarea:focus {
+  outline: none;
+  border-color: #384B70;
+  box-shadow: 0 0 0 3px rgba(56, 75, 112, 0.15);
+}
+
+.analyzeBtn {
+  width: 100%;
+  padding: 14px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #384B70;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.analyzeBtn:hover:not(:disabled) {
+  background-color: #2f3f60;
+}
+
+.analyzeBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.analyzeBtn--loading {
+  background-color: #6e6e73;
+}
+
+.analysisError {
+  margin-top: 16px;
+  padding: 12px;
+  background-color: #fee2e2;
+  border-radius: 8px;
+  color: #dc2626;
+  font-size: 14px;
+}
+
+.analysisResults {
+  margin-top: 24px;
+}
+
+/* Score Badge */
+.scoreBadge {
+  display: inline-flex;
+  align-items: baseline;
+  padding: 16px 24px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.scoreBadge--red {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.scoreBadge--yellow {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+.scoreBadge--green {
+  background-color: #d1fae5;
+  color: #059669;
+}
+
+.scoreValue {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.scoreLabel {
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 4px;
+  opacity: 0.7;
+}
+
+/* Feedback Section */
+.feedbackSection {
+  margin-bottom: 24px;
+}
+
+.feedbackSection h4 {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1d1d1f;
+}
+
+.feedbackList {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.feedbackList li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #3c3c43;
+}
+
+/* LeetCode Section */
+.leetcodeSection h4 {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1d1d1f;
+}
+
+.leetcodeList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.leetcodeItem {
+  padding: 12px;
+  margin-bottom: 8px;
+  background-color: #f5f5f7;
+  border-radius: 8px;
+}
+
+.leetcodeLink {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #384B70;
+  text-decoration: none;
+  margin-bottom: 4px;
+}
+
+.leetcodeLink:hover {
+  text-decoration: underline;
+}
+
+.leetcodeWhy {
+  font-size: 13px;
+  color: #6e6e73;
+}
+
+.analysisTimestamp {
+  margin-top: 16px;
+  font-size: 12px;
+  color: #9a9aa0;
+  text-align: right;
+}
+
+.analysisSubtitle {
+  margin: 0 0 20px 0;
+  font-size: 14px;
+  color: #6e6e73;
+}
+
+.analysisLoading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.loadingSpinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #e5e5e7;
+  border-top-color: #384B70;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+.analysisHint {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #9a9aa0;
+  text-align: center;
+}
+
+.btnSpinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ====================== */
+/* Results Section Styles */
+/* ====================== */
+
+.resultsSection {
+  width: 100%;
+  max-width: 600px;
+  padding: 32px;
+  background-color: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.resultsTitle {
+  margin: 0 0 24px 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #1d1d1f;
+}
+
+.resultsSection .scoreBadge {
+  margin: 0 auto 32px auto;
+}
+
+.resultsSection .feedbackSection,
+.resultsSection .leetcodeSection {
+  text-align: left;
+}
+
+.resultsTimestamp {
+  margin-top: 24px;
+  font-size: 12px;
+  color: #9a9aa0;
+}
+
+.resultsButtons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.resultBtn {
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.resultBtn--primary {
+  background-color: #384B70;
+  color: white;
+}
+
+.resultBtn--primary:hover {
+  background-color: #2f3f60;
+  box-shadow: 0 4px 12px rgba(56, 75, 112, 0.3);
+}
+
+.resultBtn--secondary {
+  background-color: #f5f5f7;
+  color: #1d1d1f;
+}
+
+.resultBtn--secondary:hover {
+  background-color: #e5e5e7;
+}
+
+/* Score Summary */
+.scoreSummary {
+  margin: -20px 0 24px 0;
+  font-size: 14px;
+  color: #6e6e73;
+  font-style: italic;
+}
+
+/* Evidence Section */
+.evidenceSection {
+  margin-bottom: 24px;
+  text-align: left;
+  padding: 16px;
+  background-color: #f0f4ff;
+  border-radius: 12px;
+  border-left: 4px solid #384B70;
+}
+
+.evidenceSection h4 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #384B70;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.evidenceList {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.evidenceList li {
+  margin-bottom: 6px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #3c3c43;
+}
+
+/* LeetCode Header with Difficulty Badge */
+.leetcodeHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Difficulty Badges */
+.difficultyBadge {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.difficultyBadge--easy {
+  background-color: #d1fae5;
+  color: #059669;
+}
+
+.difficultyBadge--medium {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+.difficultyBadge--hard {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+/* Answers Count */
+.answersCount {
+  margin-top: 16px;
+  font-size: 13px;
+  color: #6e6e73;
 }
 

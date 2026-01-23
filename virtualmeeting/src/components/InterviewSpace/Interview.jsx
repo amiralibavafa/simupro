@@ -12,6 +12,7 @@ function Interview({ onComplete }) {
   const [index, setIndex] = useState(0);
   const [phase, setPhase] = useState("ai"); // ai | user
   const [allAnswers, setAllAnswers] = useState("");
+  const [isFinished, setIsFinished] = useState(false);
 
   // Generate a unique session ID for this interview session
   const sessionId = useMemo(() => `session_${Date.now()}`, []);
@@ -21,33 +22,62 @@ function Interview({ onComplete }) {
       const res = await fetch(`${API_BASE_URL}/mock/status`);
       const data = await res.json();
       if (data.ready) {
+        console.log("=== Mock Data Received ===");
+        console.log("Has jobDescription:", !!data.data?.jobDescription);
+        console.log("jobDescription length:", data.data?.jobDescription?.length || 0);
         setMockData(data.data);
         setLoading(false);
+
+        // Save jobDescription to backend for this session
+        if (data.data?.jobDescription) {
+          try {
+            await fetch(`${API_BASE_URL}/api/interview/jobdescription`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                sessionId,
+                jobDescription: data.data.jobDescription,
+              }),
+            });
+            console.log("JobDescription saved to backend for session:", sessionId);
+          } catch (err) {
+            console.error("Failed to save jobDescription:", err);
+          }
+        }
       } else {
         setTimeout(checkStatus, 1200);
       }
     };
     checkStatus();
-  }, []);
+  }, [sessionId]);
 
   const questions = mockData?.parsedScript?.behavioral || [];
   const audioFiles = mockData?.audioFiles || [];
+  // Get jobDescription from mockData (stored when mock was created)
+  const jobDescription = mockData?.jobDescription || "";
 
   const handleAnswerDone = (answer) => {
-    setAllAnswers( prev => `${prev}${questions[index]?.interviewer} : ${answer} \n`);
-  }
+    setAllAnswers(prev => `${prev}${questions[index]?.interviewer} : ${answer} \n`);
+  };
 
   useEffect(() => {
     if (!mockData) return;
+    if (isFinished) return;
 
     // when interview is finished
-    if (index === questions.length) {
-      console.log("Interview finished ✅");
-      console.log("Collected answers:");
-      console.log(allAnswers);
-      if (onComplete) onComplete(allAnswers);
+    if (index === questions.length && questions.length > 0) {
+      console.log("Interview finished");
+      setIsFinished(true);
+      // Pass answers, sessionId, AND jobDescription to parent
+      if (onComplete) {
+        onComplete({
+          answers: allAnswers,
+          sessionId,
+          jobDescription,
+        });
+      }
     }
-  }, [index, mockData, questions.length, allAnswers, onComplete]);
+  }, [index, mockData, questions.length, allAnswers, onComplete, sessionId, isFinished, jobDescription]);
 
   if (loading) return <div className="mainArea" />;
 

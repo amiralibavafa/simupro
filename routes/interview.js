@@ -1,113 +1,20 @@
 // routes/interview.js
-// API routes for voice interview functionality
+// API routes for voice interview functionality (no OpenAI - uses Web Speech API in browser)
 
 import express from "express";
-import multer from "multer";
-import path from "path";
-import fs from "fs";
-import { fileURLToPath } from "url";
-import { transcribeAudio } from "../services/transcription.js";
-import { saveAnswer, getSessionAnswers } from "../services/storage.js";
-import { evaluateAnswer } from "../services/aiAnswer.js";
+import { saveAnswer, getSessionAnswers, saveJobDescription, getJobDescription } from "../services/storage.js";
+import { analyzeInterview, getAnalysis } from "../services/analysis.js";
 
 const router = express.Router();
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// Configure multer for audio uploads
-// Store in temp directory, auto-delete after processing
-const audioStorage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    const uploadDir = path.join(__dirname, "..", "uploads", "audio");
-    if (!fs.existsSync(uploadDir)) {
-      fs.mkdirSync(uploadDir, { recursive: true });
-    }
-    cb(null, uploadDir);
-  },
-  filename: function (req, file, cb) {
-    // Use timestamp + original extension to avoid conflicts
-    const ext = path.extname(file.originalname) || ".webm";
-    cb(null, `audio_${Date.now()}${ext}`);
-  },
-});
-
-const audioUpload = multer({
-  storage: audioStorage,
-  limits: {
-    fileSize: 25 * 1024 * 1024, // 25MB max (Whisper API limit)
-  },
-  fileFilter: function (req, file, cb) {
-    // Accept common audio formats that Whisper supports
-    const allowedMimes = [
-      "audio/webm",
-      "audio/wav",
-      "audio/mp3",
-      "audio/mpeg",
-      "audio/mp4",
-      "audio/ogg",
-      "audio/flac",
-      "audio/m4a",
-      "video/webm", // Chrome sometimes sends webm as video/webm
-    ];
-
-    if (allowedMimes.includes(file.mimetype)) {
-      cb(null, true);
-    } else {
-      cb(new Error(`Unsupported audio format: ${file.mimetype}`), false);
-    }
-  },
-});
-
-/**
- * POST /api/transcribe
- * Transcribe audio to text using OpenAI Whisper
- *
- * Request: multipart/form-data with "audio" field
- * Response: { transcript: string }
- */
-router.post("/transcribe", audioUpload.single("audio"), async (req, res) => {
-  const audioFile = req.file;
-
-  if (!audioFile) {
-    return res.status(400).json({
-      error: "No audio file provided",
-      details: "Please upload an audio file with field name 'audio'",
-    });
-  }
-
-  try {
-    const transcript = await transcribeAudio(audioFile.path);
-
-    // Clean up uploaded file after transcription
-    fs.unlink(audioFile.path, (err) => {
-      if (err) console.error("Error deleting temp audio file:", err);
-    });
-
-    return res.json({ transcript });
-  } catch (error) {
-    // Clean up file even on error
-    if (audioFile.path && fs.existsSync(audioFile.path)) {
-      fs.unlink(audioFile.path, () => {});
-    }
-
-    console.error("Transcription route error:", error);
-
-    return res.status(500).json({
-      error: "Transcription failed",
-      details: error.message,
-    });
-  }
-});
-
 /**
  * POST /api/interview/answer
- * Process an interview answer and get AI feedback
+ * Save an interview answer (transcript from Web Speech API)
  *
  * Request body: { sessionId, questionId, transcript, question? }
- * Response: { aiAnswer: string, saved: boolean }
+ * Response: { saved: true, createdAt }
  */
-router.post("/interview/answer", async (req, res) => {
+router.post("/interview/answer", (req, res) => {
   const { sessionId, questionId, transcript, question } = req.body;
 
   // Validate required fields
@@ -133,27 +40,15 @@ router.post("/interview/answer", async (req, res) => {
   }
 
   try {
-    // Generate AI feedback using the existing AI pipeline
-    let aiAnswer;
-
-    if (question) {
-      // If question is provided, evaluate the answer
-      aiAnswer = await evaluateAnswer({ question, transcript });
-    } else {
-      // Simple acknowledgment if no question context
-      aiAnswer = `Answer recorded successfully. Transcript: "${transcript.substring(0, 200)}${transcript.length > 200 ? "..." : ""}"`;
-    }
-
     // Save the answer to persistent storage
     const savedRecord = saveAnswer({
       sessionId,
       questionId,
       transcript,
-      aiAnswer,
+      question: question || null,
     });
 
     return res.json({
-      aiAnswer,
       saved: true,
       createdAt: savedRecord.createdAt,
     });
@@ -161,7 +56,7 @@ router.post("/interview/answer", async (req, res) => {
     console.error("Interview answer route error:", error);
 
     return res.status(500).json({
-      error: "Failed to process answer",
+      error: "Failed to save answer",
       details: error.message,
     });
   }
@@ -171,7 +66,7 @@ router.post("/interview/answer", async (req, res) => {
  * GET /api/interview/session/:sessionId
  * Get all answers for a session
  *
- * Response: { sessionId, answers: [...], createdAt, lastUpdated } | null
+ * Response: { sessionId, answers: [...], createdAt, lastUpdated } | 404
  */
 router.get("/interview/session/:sessionId", (req, res) => {
   const { sessionId } = req.params;
@@ -180,9 +75,11 @@ router.get("/interview/session/:sessionId", (req, res) => {
     const session = getSessionAnswers(sessionId);
 
     if (!session) {
-      return res.status(404).json({
-        error: "Session not found",
-        details: `No session found with ID: ${sessionId}`,
+      // Return empty session instead of 404 for new sessions
+      return res.json({
+        sessionId,
+        answers: [],
+        createdAt: null,
       });
     }
 
@@ -197,29 +94,112 @@ router.get("/interview/session/:sessionId", (req, res) => {
   }
 });
 
-// Handle multer errors
-router.use((err, req, res, next) => {
-  if (err instanceof multer.MulterError) {
-    if (err.code === "LIMIT_FILE_SIZE") {
-      return res.status(400).json({
-        error: "File too large",
-        details: "Audio file must be less than 25MB",
+/**
+ * POST /api/interview/analyze
+ * Analyze interview performance using Gemini AI
+ *
+ * Request body: { sessionId, jobDescription }
+ * Response: { overall_feedback, score, leetcode_recommendations, ... }
+ */
+router.post("/interview/analyze", async (req, res) => {
+  const { sessionId, jobDescription } = req.body;
+
+  if (!sessionId) {
+    return res.status(400).json({
+      error: "Missing sessionId",
+      details: "sessionId is required",
+    });
+  }
+
+  if (!jobDescription || jobDescription.trim().length === 0) {
+    return res.status(400).json({
+      error: "Missing jobDescription",
+      details: "jobDescription is required",
+    });
+  }
+
+  try {
+    const analysis = await analyzeInterview(sessionId, jobDescription.trim());
+    return res.json(analysis);
+  } catch (error) {
+    console.error("Analysis error:", error);
+    return res.status(500).json({
+      error: "Analysis failed",
+      details: error.message,
+    });
+  }
+});
+
+/**
+ * GET /api/interview/analyze/:sessionId
+ * Get saved analysis for a session
+ *
+ * Response: { overall_feedback, score, leetcode_recommendations, ... } | null
+ */
+router.get("/interview/analyze/:sessionId", (req, res) => {
+  const { sessionId } = req.params;
+
+  try {
+    const analysis = getAnalysis(sessionId);
+
+    if (!analysis) {
+      return res.json({
+        sessionId,
+        analyzed: false,
+        message: "No analysis found for this session",
       });
     }
-    return res.status(400).json({
-      error: "File upload error",
-      details: err.message,
+
+    return res.json({ ...analysis, analyzed: true });
+  } catch (error) {
+    console.error("Get analysis error:", error);
+    return res.status(500).json({
+      error: "Failed to retrieve analysis",
+      details: error.message,
     });
   }
+});
 
-  if (err) {
-    return res.status(400).json({
-      error: "Upload error",
-      details: err.message,
-    });
+/**
+ * POST /api/interview/jobdescription
+ * Save job description for a session
+ *
+ * Request body: { sessionId, jobDescription }
+ */
+router.post("/interview/jobdescription", (req, res) => {
+  const { sessionId, jobDescription } = req.body;
+
+  if (!sessionId) {
+    return res.status(400).json({ error: "Missing sessionId" });
   }
 
-  next();
+  if (!jobDescription) {
+    return res.status(400).json({ error: "Missing jobDescription" });
+  }
+
+  try {
+    saveJobDescription(sessionId, jobDescription);
+    return res.json({ saved: true });
+  } catch (error) {
+    console.error("Save job description error:", error);
+    return res.status(500).json({ error: "Failed to save job description" });
+  }
+});
+
+/**
+ * GET /api/interview/jobdescription/:sessionId
+ * Get job description for a session
+ */
+router.get("/interview/jobdescription/:sessionId", (req, res) => {
+  const { sessionId } = req.params;
+
+  try {
+    const jobDescription = getJobDescription(sessionId);
+    return res.json({ sessionId, jobDescription });
+  } catch (error) {
+    console.error("Get job description error:", error);
+    return res.status(500).json({ error: "Failed to get job description" });
+  }
 });
 
 export default router;

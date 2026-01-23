@@ -1,0 +1,189 @@
+{
+  "session_1769068221741": {
+    "overall_feedback": [
+      "You only provided a very brief introductory response.",
+      "No answers were given for the behavioral or technical questions.",
+      "It is crucial to fully answer all interview questions presented.",
+      "Elaborate on your experience and skills with detailed examples.",
+      "Thorough preparation for both behavioral and technical sections is key."
+    ],
+    "score": {
+      "value": 5,
+      "color": "red"
+    },
+    "leetcode_recommendations": [
+      {
+        "title": "Employees Earning More Than Their Managers",
+        "link": "https://leetcode.com/problems/employees-earning-more-than-their-managers/",
+        "why_this": "This problem helps practice basic SQL joins and filtering conditions, essential for data extraction and analysis."
+      },
+      {
+        "title": "Department Highest Salary",
+        "link": "https://leetcode.com/problems/department-highest-salary/",
+        "why_this": "Practice with window functions, subqueries, and aggregation will enhance SQL skills for performance metric calculation."
+      },
+      {
+        "title": "Merge Intervals",
+        "link": "https://leetcode.com/problems/merge-intervals/",
+        "why_this": "This problem is excellent for developing logic to handle time-based or sequential data, crucial for identifying repeat calls within windows."
+      },
+      {
+        "title": "Group Anagrams",
+        "link": "https://leetcode.com/problems/group-anagrams/",
+        "why_this": "It helps practice grouping items effectively using hash maps, a technique applicable to grouping call records by customer ID."
+      },
+      {
+        "title": "Two Sum",
+        "link": "https://leetcode.com/problems/two-sum/",
+        "why_this": "A fundamental problem for understanding array traversal and using hash tables for efficient lookups, relevant for data processing."
+      }
+    ],
+    "sessionId": "session_1769068221741",
+    "jobDescription": "At Motorola Solutions, we believe that everything starts with our people. We’re a global close-knit community, united by the relentless pursuit to help keep people safer everywhere. Our critical communications, video security and command center technologies support public safety agencies and enterprises alike, enabling the coordination that’s critical for safer communities, safer schools, safer hospitals and safer businesses. Connect with a career that matters, and help us build a safer future.\n\nAperçu de l’entreprise\n\nChez Motorola Solutions, nous pensons que tout commence par nos employés. Nous sommes une communauté mondiale soudée, unie par la volonté incessante de contribuer à la sécurité des personnes partout dans le monde. Nos technologies de communication, de sécurité vidéo et de centre de commandement essentielles soutiennent les agences de sécurité publique et les entreprises, permettant une coordination essentielle pour des communautés, des écoles, des hôpitaux et des entreprises plus sécuritaires. Connectez-vous à une carrière qui compte et aidez-nous à bâtir un avenir plus sûr.\n\nDepartment Overview\n\nThis position is part of the Customer Support organization. This team deals directly with our partners and customers and helps them with resolving their technical issues related to Motorola Solutions Inc (MSI) products. It is a rapidly growing team with tons of career opportunities. The team values transparency, open communication, collaboration and customer first mentality.\n\nJob Description\n\nAbout the Role\n\nWe are seeking a highly motivated and analytical Data Analyst Intern to join our team. This role is a hands-on opportunity to apply data science and business intelligence techniques to a critical operational area: the Contact Center. The intern will use data to understand customer contact drivers, identify inefficiencies, and propose actionable solutions to reduce unnecessary contact volume and minimize negative impact on customer experience.\n\nKey Responsibilities\n\nData Collection and Preparation: Assist in collecting, cleaning, and processing large datasets from various sources, including CRM, call logs, and customer feedback systems. \nPerformance Analysis: Develop and refine operational metrics, reports, and dashboards to monitor contact center performance and key drivers of contact volume (e.g., repeat calls, call time, and common reasons for contact). \nIdentify Root Causes: Conduct diagnostic and descriptive analysis to find patterns, trends, and root causes of high-impact contact events and recurring customer issues. \nReporting and Presentation: Document analysis processes and methodologies, and translate complex data findings into clear, concise, and stakeholder-facing reports and visualizations for non-technical leadership and cross-functional teams. \nProcess Improvement: Partner with business operations teams to recommend and influence business solutions and process improvements based on data-driven insights. \n\nQualifications\n\nCurrently enrolled in a Bachelor’s or Master’s degree program in Data Science, Statistics, Business Analytics, Computer Science, or a related quantitative field. \nFoundational knowledge of data analysis techniques and tools. \nTechnical Skills: Practical experience with SQL (Structured Query Language), Microsoft Excel, Google Sheets and at least one programming language for data analysis (e.g., Python or R). Previous experience working in Salesforce, or Salesforce reporting an asset. \nFamiliarity with data visualization tools (e.g., Tableau or Power BI) is preferred. \nStrong analytical, mathematical, and problem-solving skills with a keen attention to detail. \nExcellent verbal and written communication skills, with the ability to communicate technical findings to business stakeholders. \nDemonstrated ability to manage time, prioritize tasks, and work without constant supervision. \n\nTarget Base Salary Range: $20.70 - $24.10 CAD\n\nConsistent with Motorola Solutions values and applicable law, we provide the following information to promote pay transparency and equity. Pay within this range varies and depends on job-related knowledge, skills, and experience. The actual offer will be based on the individual candidate.\n\nBasic Requirements\n\nAll Candidates must be currently pursuing a Bachelor’s or Master’s degree program in Data Science, Statistics, Business Analytics, Computer Science, or a related quantitative field. \n\nTravel Requirements\n\nUnder 10%\n\nRelocation Provided\n\nNone\n\nPosition Type\n\nIntern\n\nEEO Statement\n\nMotorola Solutions is an Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion or belief, sex, sexual orientation, gender identity, national origin, disability, veteran status or any other legally-protected characteristic.\n\nWe are proud of our people-first and community-focused culture, empowering every Motorolan to be their most authentic self and to do their best work to deliver on the promise of a safer world. If you’d like to join our team but feel that you don’t quite meet all of the preferred skills, we’d still love to hear why you think you’d be a great addition to our team.\n\nWe’re committed to providing an inclusive and accessible recruiting experience for candidates with disabilities, or other physical or mental health conditions. To request an accommodation, please complete this Reasonable Accommodations Form so we can assist you.\n\nMotorola Solutions adopte, favorise et promeut les principes de diversité, d’équité et d’inclusion. Nous encourageons et accueillons les candidatures de toutes les personnes qualifiées, quelles que soient leur race, origines ethnique, religion ou croyance, orientation sexuelle, identité et expression sexuelle, statut d’anciens combattants ou tout autre statut protégé par la Loi.\n\nNous sommes fiers de notre culture axée sur les personnes et les communautés, encourageant ainsi chaque Motorolan d’être la version la plus authentique de lui-même dans ses responsabilités afin de tenir la promesse d’un monde plus sécuritaire.\n\nSi vous souhaitez vous joindre à notre communauté mais croyez que vous ne possédez pas toutes les exigences requises pour le poste convoité, nous aimerions tout de même connaître les raisons pour lesquelles vous pensez être un excellent candidat pour notre équipe.\n\nNous offrons également des mesures d’adaptation pendant toutes les étapes du processus d’embauche afin de favoriser l’inclusion des personnes vivant avec un handicap physique et/ou mental. Pour demander un aménagement, veuillez remplir ce formulaire d'aménagement raisonnable afin que nous puissions vous aider.",
+    "analyzedAt": "2026-01-22T07:57:12.553Z"
+  },
+  "session_1769136534350": {
+    "overall_feedback": [
+      "It appears the interview was not fully completed, as only the initial greeting response is provided.",
+      "To provide meaningful feedback, the candidate needs to answer the behavioral and technical questions.",
+      "Practice articulating your experiences clearly and concisely for future interviews.",
+      "Ensure you are prepared to discuss specific examples for each behavioral question.",
+      "Review fundamental data analysis concepts and practice coding challenges.",
+      "Focus on demonstrating problem-solving skills and technical proficiency."
+    ],
+    "score": {
+      "value": 5,
+      "color": "red"
+    },
+    "leetcode_recommendations": [
+      {
+        "title": "Group Anagrams",
+        "link": "https://leetcode.com/problems/group-anagrams/",
+        "why_this": "Helps practice dictionary/hash map usage for grouping data, relevant for issue counting."
+      },
+      {
+        "title": "Employees Earning More Than Their Managers",
+        "link": "https://leetcode.com/problems/employees-earning-more-than-their-managers/",
+        "why_this": "A fundamental SQL problem to practice JOINs and filtering, crucial for data querying."
+      },
+      {
+        "title": "Rank Scores",
+        "link": "https://leetcode.com/problems/rank-scores/",
+        "why_this": "Practices SQL window functions (DENSE_RANK) which are useful for performance analysis."
+      },
+      {
+        "title": "Two Sum",
+        "link": "https://leetcode.com/problems/two-sum/",
+        "why_this": "A classic problem to strengthen basic algorithmic thinking and hash table application in Python."
+      },
+      {
+        "title": "Merge Intervals",
+        "link": "https://leetcode.com/problems/merge-intervals/",
+        "why_this": "Develops logic for handling overlapping time series data, relevant for analyzing call logs and sequences."
+      }
+    ],
+    "sessionId": "session_1769136534350",
+    "jobDescription": "At Motorola Solutions, we believe that everything starts with our people. We’re a global close-knit community, united by the relentless pursuit to help keep people safer everywhere. Our critical communications, video security and command center technologies support public safety agencies and enterprises alike, enabling the coordination that’s critical for safer communities, safer schools, safer hospitals and safer businesses. Connect with a career that matters, and help us build a safer future.\r\n\r\nAperçu de l’entreprise\r\n\r\nChez Motorola Solutions, nous pensons que tout commence par nos employés. Nous sommes une communauté mondiale soudée, unie par la volonté incessante de contribuer à la sécurité des personnes partout dans le monde. Nos technologies de communication, de sécurité vidéo et de centre de commandement essentielles soutiennent les agences de sécurité publique et les entreprises, permettant une coordination essentielle pour des communautés, des écoles, des hôpitaux et des entreprises plus sécuritaires. Connectez-vous à une carrière qui compte et aidez-nous à bâtir un avenir plus sûr.\r\n\r\nDepartment Overview\r\n\r\nThis position is part of the Customer Support organization. This team deals directly with our partners and customers and helps them with resolving their technical issues related to Motorola Solutions Inc (MSI) products. It is a rapidly growing team with tons of career opportunities. The team values transparency, open communication, collaboration and customer first mentality.\r\n\r\nJob Description\r\n\r\nAbout the Role\r\n\r\nWe are seeking a highly motivated and analytical Data Analyst Intern to join our team. This role is a hands-on opportunity to apply data science and business intelligence techniques to a critical operational area: the Contact Center. The intern will use data to understand customer contact drivers, identify inefficiencies, and propose actionable solutions to reduce unnecessary contact volume and minimize negative impact on customer experience.\r\n\r\nKey Responsibilities\r\n\r\nData Collection and Preparation: Assist in collecting, cleaning, and processing large datasets from various sources, including CRM, call logs, and customer feedback systems. \r\nPerformance Analysis: Develop and refine operational metrics, reports, and dashboards to monitor contact center performance and key drivers of contact volume (e.g., repeat calls, call time, and common reasons for contact). \r\nIdentify Root Causes: Conduct diagnostic and descriptive analysis to find patterns, trends, and root causes of high-impact contact events and recurring customer issues. \r\nReporting and Presentation: Document analysis processes and methodologies, and translate complex data findings into clear, concise, and stakeholder-facing reports and visualizations for non-technical leadership and cross-functional teams. \r\nProcess Improvement: Partner with business operations teams to recommend and influence business solutions and process improvements based on data-driven insights. \r\n\r\nQualifications\r\n\r\nCurrently enrolled in a Bachelor’s or Master’s degree program in Data Science, Statistics, Business Analytics, Computer Science, or a related quantitative field. \r\nFoundational knowledge of data analysis techniques and tools. \r\nTechnical Skills: Practical experience with SQL (Structured Query Language), Microsoft Excel, Google Sheets and at least one programming language for data analysis (e.g., Python or R). Previous experience working in Salesforce, or Salesforce reporting an asset. \r\nFamiliarity with data visualization tools (e.g., Tableau or Power BI) is preferred. \r\nStrong analytical, mathematical, and problem-solving skills with a keen attention to detail. \r\nExcellent verbal and written communication skills, with the ability to communicate technical findings to business stakeholders. \r\nDemonstrated ability to manage time, prioritize tasks, and work without constant supervision. \r\n\r\nTarget Base Salary Range: $20.70 - $24.10 CAD\r\n\r\nConsistent with Motorola Solutions values and applicable law, we provide the following information to promote pay transparency and equity. Pay within this range varies and depends on job-related knowledge, skills, and experience. The actual offer will be based on the individual candidate.\r\n\r\nBasic Requirements\r\n\r\nAll Candidates must be currently pursuing a Bachelor’s or Master’s degree program in Data Science, Statistics, Business Analytics, Computer Science, or a related quantitative field. \r\n\r\nTravel Requirements\r\n\r\nUnder 10%\r\n\r\nRelocation Provided\r\n\r\nNone\r\n\r\nPosition Type\r\n\r\nIntern\r\n\r\nEEO Statement\r\n\r\nMotorola Solutions is an Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion or belief, sex, sexual orientation, gender identity, national origin, disability, veteran status or any other legally-protected characteristic.\r\n\r\nWe are proud of our people-first and community-focused culture, empowering every Motorolan to be their most authentic self and to do their best work to deliver on the promise of a safer world. If you’d like to join our team but feel that you don’t quite meet all of the preferred skills, we’d still love to hear why you think you’d be a great addition to our team.\r\n\r\nWe’re committed to providing an inclusive and accessible recruiting experience for candidates with disabilities, or other physical or mental health conditions. To request an accommodation, please complete this Reasonable Accommodations Form so we can assist you.\r\n\r\nMotorola Solutions adopte, favorise et promeut les principes de diversité, d’équité et d’inclusion. Nous encourageons et accueillons les candidatures de toutes les personnes qualifiées, quelles que soient leur race, origines ethnique, religion ou croyance, orientation sexuelle, identité et expression sexuelle, statut d’anciens combattants ou tout autre statut protégé par la Loi.\r\n\r\nNous sommes fiers de notre culture axée sur les personnes et les communautés, encourageant ainsi chaque Motorolan d’être la version la plus authentique de lui-même dans ses responsabilités afin de tenir la promesse d’un monde plus sécuritaire.\r\n\r\nSi vous souhaitez vous joindre à notre communauté mais croyez que vous ne possédez pas toutes les exigences requises pour le poste convoité, nous aimerions tout de même connaître les raisons pour lesquelles vous pensez être un excellent candidat pour notre équipe.\r\n\r\nNous offrons également des mesures d’adaptation pendant toutes les étapes du processus d’embauche afin de favoriser l’inclusion des personnes vivant avec un handicap physique et/ou mental. Pour demander un aménagement, veuillez remplir ce formulaire d'aménagement raisonnable afin que nous puissions vous aider.",
+    "analyzedAt": "2026-01-23T02:53:49.364Z"
+  },
+  "session_1769139306894": {
+    "overall_feedback": [
+      "Only one introductory answer was provided for the entire interview.",
+      "Cannot assess the candidate's qualifications, skills, or experience.",
+      "No substantive responses were available for a proper evaluation.",
+      "Please provide a complete interview transcript for accurate analysis.",
+      "A comprehensive evaluation requires more detailed candidate input."
+    ],
+    "score": {
+      "value": 10,
+      "color": "red"
+    },
+    "leetcode_recommendations": [
+      {
+        "title": "Two Sum",
+        "link": "https://leetcode.com/problems/two-sum/",
+        "why_this": "This problem helps build foundational logic and array manipulation skills for data processing."
+      },
+      {
+        "title": "Employees Earning More Than Their Managers",
+        "link": "https://leetcode.com/problems/employees-earning-more-than-their-managers/",
+        "why_this": "It's excellent for practicing basic SQL joins and filtering conditions, critical for data extraction."
+      },
+      {
+        "title": "Rising Temperature",
+        "link": "https://leetcode.com/problems/rising-temperature/",
+        "why_this": "This problem challenges your understanding of date functions and self-joins in SQL for comparative analysis."
+      },
+      {
+        "title": "Valid Parentheses",
+        "link": "https://leetcode.com/problems/valid-parentheses/",
+        "why_this": "It helps in developing logical thinking and understanding stack data structures, useful for parsing and data cleaning."
+      },
+      {
+        "title": "Department Highest Salary",
+        "link": "https://leetcode.com/problems/department-highest-salary/",
+        "why_this": "Practicing this problem strengthens SQL skills in subqueries or window functions for complex aggregation."
+      }
+    ],
+    "sessionId": "session_1769139306894",
+    "jobDescription": "At Motorola Solutions, we believe that everything starts with our people. We’re a global close-knit community, united by the relentless pursuit to help keep people safer everywhere. Our critical communications, video security and command center technologies support public safety agencies and enterprises alike, enabling the coordination that’s critical for safer communities, safer schools, safer hospitals and safer businesses. Connect with a career that matters, and help us build a safer future.\r\n\r\nAperçu de l’entreprise\r\n\r\nChez Motorola Solutions, nous pensons que tout commence par nos employés. Nous sommes une communauté mondiale soudée, unie par la volonté incessante de contribuer à la sécurité des personnes partout dans le monde. Nos technologies de communication, de sécurité vidéo et de centre de commandement essentielles soutiennent les agences de sécurité publique et les entreprises, permettant une coordination essentielle pour des communautés, des écoles, des hôpitaux et des entreprises plus sécuritaires. Connectez-vous à une carrière qui compte et aidez-nous à bâtir un avenir plus sûr.\r\n\r\nDepartment Overview\r\n\r\nThis position is part of the Customer Support organization. This team deals directly with our partners and customers and helps them with resolving their technical issues related to Motorola Solutions Inc (MSI) products. It is a rapidly growing team with tons of career opportunities. The team values transparency, open communication, collaboration and customer first mentality.\r\n\r\nJob Description\r\n\r\nAbout the Role\r\n\r\nWe are seeking a highly motivated and analytical Data Analyst Intern to join our team. This role is a hands-on opportunity to apply data science and business intelligence techniques to a critical operational area: the Contact Center. The intern will use data to understand customer contact drivers, identify inefficiencies, and propose actionable solutions to reduce unnecessary contact volume and minimize negative impact on customer experience.\r\n\r\nKey Responsibilities\r\n\r\nData Collection and Preparation: Assist in collecting, cleaning, and processing large datasets from various sources, including CRM, call logs, and customer feedback systems. \r\nPerformance Analysis: Develop and refine operational metrics, reports, and dashboards to monitor contact center performance and key drivers of contact volume (e.g., repeat calls, call time, and common reasons for contact). \r\nIdentify Root Causes: Conduct diagnostic and descriptive analysis to find patterns, trends, and root causes of high-impact contact events and recurring customer issues. \r\nReporting and Presentation: Document analysis processes and methodologies, and translate complex data findings into clear, concise, and stakeholder-facing reports and visualizations for non-technical leadership and cross-functional teams. \r\nProcess Improvement: Partner with business operations teams to recommend and influence business solutions and process improvements based on data-driven insights. \r\n\r\nQualifications\r\n\r\nCurrently enrolled in a Bachelor’s or Master’s degree program in Data Science, Statistics, Business Analytics, Computer Science, or a related quantitative field. \r\nFoundational knowledge of data analysis techniques and tools. \r\nTechnical Skills: Practical experience with SQL (Structured Query Language), Microsoft Excel, Google Sheets and at least one programming language for data analysis (e.g., Python or R). Previous experience working in Salesforce, or Salesforce reporting an asset. \r\nFamiliarity with data visualization tools (e.g., Tableau or Power BI) is preferred. \r\nStrong analytical, mathematical, and problem-solving skills with a keen attention to detail. \r\nExcellent verbal and written communication skills, with the ability to communicate technical findings to business stakeholders. \r\nDemonstrated ability to manage time, prioritize tasks, and work without constant supervision. \r\n\r\nTarget Base Salary Range: $20.70 - $24.10 CAD\r\n\r\nConsistent with Motorola Solutions values and applicable law, we provide the following information to promote pay transparency and equity. Pay within this range varies and depends on job-related knowledge, skills, and experience. The actual offer will be based on the individual candidate.\r\n\r\nBasic Requirements\r\n\r\nAll Candidates must be currently pursuing a Bachelor’s or Master’s degree program in Data Science, Statistics, Business Analytics, Computer Science, or a related quantitative field. \r\n\r\nTravel Requirements\r\n\r\nUnder 10%\r\n\r\nRelocation Provided\r\n\r\nNone\r\n\r\nPosition Type\r\n\r\nIntern\r\n\r\nEEO Statement\r\n\r\nMotorola Solutions is an Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion or belief, sex, sexual orientation, gender identity, national origin, disability, veteran status or any other legally-protected characteristic.\r\n\r\nWe are proud of our people-first and community-focused culture, empowering every Motorolan to be their most authentic self and to do their best work to deliver on the promise of a safer world. If you’d like to join our team but feel that you don’t quite meet all of the preferred skills, we’d still love to hear why you think you’d be a great addition to our team.\r\n\r\nWe’re committed to providing an inclusive and accessible recruiting experience for candidates with disabilities, or other physical or mental health conditions. To request an accommodation, please complete this Reasonable Accommodations Form so we can assist you.\r\n\r\nMotorola Solutions adopte, favorise et promeut les principes de diversité, d’équité et d’inclusion. Nous encourageons et accueillons les candidatures de toutes les personnes qualifiées, quelles que soient leur race, origines ethnique, religion ou croyance, orientation sexuelle, identité et expression sexuelle, statut d’anciens combattants ou tout autre statut protégé par la Loi.\r\n\r\nNous sommes fiers de notre culture axée sur les personnes et les communautés, encourageant ainsi chaque Motorolan d’être la version la plus authentique de lui-même dans ses responsabilités afin de tenir la promesse d’un monde plus sécuritaire.\r\n\r\nSi vous souhaitez vous joindre à notre communauté mais croyez que vous ne possédez pas toutes les exigences requises pour le poste convoité, nous aimerions tout de même connaître les raisons pour lesquelles vous pensez être un excellent candidat pour notre équipe.\r\n\r\nNous offrons également des mesures d’adaptation pendant toutes les étapes du processus d’embauche afin de favoriser l’inclusion des personnes vivant avec un handicap physique et/ou mental. Pour demander un aménagement, veuillez remplir ce formulaire d'aménagement raisonnable afin que nous puissions vous aider.",
+    "analyzedAt": "2026-01-23T03:39:19.070Z"
+  },
+  "session_1769149261556": {
+    "overall_feedback": [
+      "You provided no substantive answers to any interview questions.",
+      "Practice articulating your experience using the STAR method.",
+      "Demonstrate your technical skills by attempting coding prompts.",
+      "Engage fully with behavioral questions to showcase your abilities.",
+      "Prepare specific examples relevant to data analysis and problem-solving.",
+      "Familiarize yourself with the job description to tailor your responses."
+    ],
+    "score": {
+      "value": 0,
+      "color": "red",
+      "summary": "The score is 0 because no job-relevant information or responses were provided during the interview."
+    },
+    "evidence": [
+      "Only introductory pleasantries were exchanged at the start of the interview.",
+      "No behavioral questions were answered, preventing any assessment of experience or communication.",
+      "No attempt was made to address the technical coding challenge.",
+      "No pseudo-code algorithm was presented or discussed for the second technical problem."
+    ],
+    "leetcode_recommendations": [
+      {
+        "title": "Contains Duplicate",
+        "link": "https://leetcode.com/problems/contains-duplicate/",
+        "difficulty": "Easy",
+        "why_this": "This problem helps practice data cleaning and validation, crucial for ensuring data quality from various customer sources."
+      },
+      {
+        "title": "Employees Earning More Than Their Managers",
+        "link": "https://leetcode.com/problems/employees-earning-more-than-their-managers/",
+        "difficulty": "Easy",
+        "why_this": "Practicing basic SQL joins and filtering is fundamental for querying CRM and call log data to extract performance metrics."
+      },
+      {
+        "title": "Top K Frequent Elements",
+        "link": "https://leetcode.com/problems/top-k-frequent-elements/",
+        "difficulty": "Medium",
+        "why_this": "This problem is relevant for identifying the most common reasons for customer contact, a key task in root cause analysis."
+      },
+      {
+        "title": "Rank Scores",
+        "link": "https://leetcode.com/problems/rank-scores/",
+        "difficulty": "Medium",
+        "why_this": "Mastering window functions in SQL is essential for developing operational metrics and ranking performance within the contact center."
+      },
+      {
+        "title": "Minimum Window Substring",
+        "link": "https://leetcode.com/problems/minimum-window-substring/",
+        "difficulty": "Hard",
+        "why_this": "This problem involves advanced string manipulation and pattern finding, useful for analyzing unstructured customer feedback for root causes."
+      }
+    ],
+    "sessionId": "session_1769149261556",
+    "jobDescription": "At Motorola Solutions, we believe that everything starts with our people. We’re a global close-knit community, united by the relentless pursuit to help keep people safer everywhere. Our critical communications, video security and command center technologies support public safety agencies and enterprises alike, enabling the coordination that’s critical for safer communities, safer schools, safer hospitals and safer businesses. Connect with a career that matters, and help us build a safer future.\r\n\r\nAperçu de l’entreprise\r\n\r\nChez Motorola Solutions, nous pensons que tout commence par nos employés. Nous sommes une communauté mondiale soudée, unie par la volonté incessante de contribuer à la sécurité des personnes partout dans le monde. Nos technologies de communication, de sécurité vidéo et de centre de commandement essentielles soutiennent les agences de sécurité publique et les entreprises, permettant une coordination essentielle pour des communautés, des écoles, des hôpitaux et des entreprises plus sécuritaires. Connectez-vous à une carrière qui compte et aidez-nous à bâtir un avenir plus sûr.\r\n\r\nDepartment Overview\r\n\r\nThis position is part of the Customer Support organization. This team deals directly with our partners and customers and helps them with resolving their technical issues related to Motorola Solutions Inc (MSI) products. It is a rapidly growing team with tons of career opportunities. The team values transparency, open communication, collaboration and customer first mentality.\r\n\r\nJob Description\r\n\r\nAbout the Role\r\n\r\nWe are seeking a highly motivated and analytical Data Analyst Intern to join our team. This role is a hands-on opportunity to apply data science and business intelligence techniques to a critical operational area: the Contact Center. The intern will use data to understand customer contact drivers, identify inefficiencies, and propose actionable solutions to reduce unnecessary contact volume and minimize negative impact on customer experience.\r\n\r\nKey Responsibilities\r\n\r\nData Collection and Preparation: Assist in collecting, cleaning, and processing large datasets from various sources, including CRM, call logs, and customer feedback systems. \r\nPerformance Analysis: Develop and refine operational metrics, reports, and dashboards to monitor contact center performance and key drivers of contact volume (e.g., repeat calls, call time, and common reasons for contact). \r\nIdentify Root Causes: Conduct diagnostic and descriptive analysis to find patterns, trends, and root causes of high-impact contact events and recurring customer issues. \r\nReporting and Presentation: Document analysis processes and methodologies, and translate complex data findings into clear, concise, and stakeholder-facing reports and visualizations for non-technical leadership and cross-functional teams. \r\nProcess Improvement: Partner with business operations teams to recommend and influence business solutions and process improvements based on data-driven insights. \r\n\r\nQualifications\r\n\r\nCurrently enrolled in a Bachelor’s or Master’s degree program in Data Science, Statistics, Business Analytics, Computer Science, or a related quantitative field. \r\nFoundational knowledge of data analysis techniques and tools. \r\nTechnical Skills: Practical experience with SQL (Structured Query Language), Microsoft Excel, Google Sheets and at least one programming language for data analysis (e.g., Python or R). Previous experience working in Salesforce, or Salesforce reporting an asset. \r\nFamiliarity with data visualization tools (e.g., Tableau or Power BI) is preferred. \r\nStrong analytical, mathematical, and problem-solving skills with a keen attention to detail. \r\nExcellent verbal and written communication skills, with the ability to communicate technical findings to business stakeholders. \r\nDemonstrated ability to manage time, prioritize tasks, and work without constant supervision. \r\n\r\nTarget Base Salary Range: $20.70 - $24.10 CAD\r\n\r\nConsistent with Motorola Solutions values and applicable law, we provide the following information to promote pay transparency and equity. Pay within this range varies and depends on job-related knowledge, skills, and experience. The actual offer will be based on the individual candidate.\r\n\r\nBasic Requirements\r\n\r\nAll Candidates must be currently pursuing a Bachelor’s or Master’s degree program in Data Science, Statistics, Business Analytics, Computer Science, or a related quantitative field. \r\n\r\nTravel Requirements\r\n\r\nUnder 10%\r\n\r\nRelocation Provided\r\n\r\nNone\r\n\r\nPosition Type\r\n\r\nIntern\r\n\r\nEEO Statement\r\n\r\nMotorola Solutions is an Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion or belief, sex, sexual orientation, gender identity, national origin, disability, veteran status or any other legally-protected characteristic.\r\n\r\nWe are proud of our people-first and community-focused culture, empowering every Motorolan to be their most authentic self and to do their best work to deliver on the promise of a safer world. If you’d like to join our team but feel that you don’t quite meet all of the preferred skills, we’d still love to hear why you think you’d be a great addition to our team.\r\n\r\nWe’re committed to providing an inclusive and accessible recruiting experience for candidates with disabilities, or other physical or mental health conditions. To request an accommodation, please complete this Reasonable Accommodations Form so we can assist you.\r\n\r\nMotorola Solutions adopte, favorise et promeut les principes de diversité, d’équité et d’inclusion. Nous encourageons et accueillons les candidatures de toutes les personnes qualifiées, quelles que soient leur race, origines ethnique, religion ou croyance, orientation sexuelle, identité et expression sexuelle, statut d’anciens combattants ou tout autre statut protégé par la Loi.\r\n\r\nNous sommes fiers de notre culture axée sur les personnes et les communautés, encourageant ainsi chaque Motorolan d’être la version la plus authentique de lui-même dans ses responsabilités afin de tenir la promesse d’un monde plus sécuritaire.\r\n\r\nSi vous souhaitez vous joindre à notre communauté mais croyez que vous ne possédez pas toutes les exigences requises pour le poste convoité, nous aimerions tout de même connaître les raisons pour lesquelles vous pensez être un excellent candidat pour notre équipe.\r\n\r\nNous offrons également des mesures d’adaptation pendant toutes les étapes du processus d’embauche afin de favoriser l’inclusion des personnes vivant avec un handicap physique et/ou mental. Pour demander un aménagement, veuillez remplir ce formulaire d'aménagement raisonnable afin que nous puissions vous aider.",
+    "analyzedAt": "2026-01-23T06:33:21.475Z",
+    "answersAnalyzed": 1
+  }
+}
