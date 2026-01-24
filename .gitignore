@@ -1,4 +1,35 @@
+# OS files
 .DS_Store
 .Trashes
+Thumbs.db
+
+# Editor files
 *.swo
-*.swp.env
+*.swp
+*.swn
+.idea/
+.vscode/
+
+# Environment files - NEVER commit these
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Uploads (user data)
+uploads/
+
+# Temporary files
+*.tmp
+.cache/
